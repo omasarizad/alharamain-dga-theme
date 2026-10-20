@@ -384,8 +384,7 @@ def build(d):
   <div data-pc="dga-notification-toast" role="status" class="pointer-events-auto flex w-full max-w-[484px] items-start gap-3 rounded-md bg-white px-6 py-4 shadow-3xl">
     {featured_icon("information-circle", "md", "info")}
     <div class="flex-1"><p class="text-md font-semibold text-neutral-800">خارج نطاق النموذج التجريبي</p>
-      <p class="text-sm text-neutral-700">هذا النموذج يشمل الصفحة الرئيسية فقط.</p>
-      <p class="text-start text-xs text-neutral-500" dir="ltr">Out of prototype scope: homepage only.</p></div>
+      <p class="text-sm text-neutral-700">هذا النموذج يشمل الصفحة الرئيسية فقط.</p></div>
     <button type="button" data-close class="inline-flex size-8 shrink-0 items-center justify-center rounded-sm text-black hover:bg-neutral-100" aria-label="إغلاق">{icon("multiplication-sign", 5)}</button>
   </div>
 </template>
