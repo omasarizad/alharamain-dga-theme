@@ -53,12 +53,9 @@ async function shoot(page, tag) {
   for (let y = 0; y < 9000; y += 700) { await page.evaluate((y) => scrollTo(0, y), y); await page.waitForTimeout(100); }
   await page.addStyleTag({ content: ".proto-bar{display:none!important} header{position:static!important}" });
   for (const tag of tags) {
-    if (MOBILE.includes(tag) || tag === "dga-notification-toast") continue;
+    if (MOBILE.includes(tag)) continue;
     results[tag] = await shoot(page, tag);
   }
-  await page.locator('[data-pc="dga-card-title"] a').first().click();
-  await page.waitForTimeout(400);
-  results["dga-notification-toast"] = await shoot(page, "dga-notification-toast");
   await page.close();
 
   page = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
