@@ -308,7 +308,7 @@ def build(d):
 <a href="#main" class="sr-only z-50 rounded-sm bg-primary-600 px-4 py-2 text-white focus:not-sr-only focus:fixed focus:start-4 focus:top-2">تخطَّ إلى المحتوى</a>
 
 <div role="note" class="flex min-h-8 items-center bg-neutral-100 px-4 py-1.5 text-sm font-medium text-black sm:px-8">
-  نموذج تجريبي غير رسمي لمنصة الحرمين بأسلوب كود المنصات · ليس الموقع الرسمي
+  نموذج تجريبي غير رسمي لمنصة الحرمين بأسلوب كود المنصات
 </div>
 {header(d)}
 {drawer(d)}
