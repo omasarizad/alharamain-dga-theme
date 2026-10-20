@@ -1,6 +1,7 @@
 # Notes
 
 - **Rebuilt from scratch with Platforms Code.** Every UI element is an official Platforms Code web component (`@platformscode/core@0.0.53`) or layout CSS on its tokens. No CSS or markup from the original site is used. Only the content (text, images, section order) is carried over.
+- **Verify the implementation on the components page** (`components.html`, linked in the bottom bar). It's generated from the page and the official package: 24 components, all found in `@platformscode/core@0.0.53`, and every attribute is checked against the official prop docs. The only attributes not in the docs are ARIA (`aria-controls`, `aria-hidden`).
 - **Component source.** `@platformscode/core` is published on npm by AZM (`azmx.sa`), which appears to be DGA's Platforms Code vendor. design.dga.gov.sa was unreachable from our network, so check the component choices against the official templates page.
 - **Icon licensing.** Icons come from `@platformscode/icons`, whose license is `UNLICENSED`. They're loaded at runtime from the npm CDN and never committed. Confirm usage rights with DGA or AZM before production.
 - **Only the homepage is in scope.** Every link to another page, the search, the language switch and the "نصي" tab show a Platforms Code toast saying the page is outside the prototype's scope. Home links stay on the page.

@@ -109,6 +109,7 @@ TEMPLATE = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Code Changes</title>
+<script src="js/proto-bar.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 <style>
@@ -161,7 +162,7 @@ pre .hunk { color: var(--hunk); }
 <body>
 <main>
 <h1>Code changes</h1>
-<p class="lead">{{REPO}}{{COUNT}} commits, newest first. Generated from git on every push. <a href="index.html">View the page →</a></p>
+<p class="lead">{{REPO}}{{COUNT}} commits, newest first. Generated from git on every push. <a href="index.html">View the page →</a> · <a href="components.html">Components used →</a></p>
 {{NOTES}}
 <h2 class="section">Commits</h2>
 {{ITEMS}}

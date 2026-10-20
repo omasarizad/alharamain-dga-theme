@@ -2,3 +2,5 @@ index.original.html
 preview-*.png
 .DS_Store
 changes.html
+components.html
+.cache/

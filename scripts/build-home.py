@@ -141,6 +141,7 @@ def build(d):
 </script>
 <script type="module" src="{PC_CORE}/core.esm.js"></script>
 <script src="js/home.js" defer></script>
+<script src="js/proto-bar.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>

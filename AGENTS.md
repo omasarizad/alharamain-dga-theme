@@ -16,6 +16,8 @@ snapshot/original.html ──extract-content.py──▶ data/content.json ─�
 - `scripts/build-home.py`: generates `index.html` from the JSON using Platforms Code components. **Edit markup here, not in `index.html`.**
 - `css/home.css`: page layout only (container, grids, hero, sections), written with official tokens (`--colors-*`, `--spacing-*`, `--radius-*`, `--text-*`, `--background-*`).
 - `js/home.js`: place filter tabs, mobile nav drawer, footer data, out-of-scope toast.
+- `js/proto-bar.js`: the prototype bottom bar (Homepage / Components / Changes / Repo) on every page. Self-contained, so it also works on pages without Platforms Code.
+- `scripts/build-components.py`: builds `components.html`, which lists every `dga-*` component in `index.html`: usage count, the attributes we set checked against the official prop docs from `@platformscode/core`, a live preview, and source links. CI runs it; the output is gitignored. **If it flags a component as missing from the package, or an attribute as undocumented, fix the markup.**
 - `NOTES.md`: project notes and caveats. Shown at the top of `changes.html`, so keep it current.
 - `scripts/build-changes.py`: builds `changes.html` from git history (CI runs it; the output is gitignored).
 - `.github/workflows/pages.yml`: deploys to GitHub Pages on every push to `main`.
@@ -55,4 +57,5 @@ Don't open `index.html` over `file://`: the CDN blocks lazy chunks for origin `n
 ## Live
 
 - Page: https://omasarizad.github.io/alharamain-dga-theme/
+- Components: https://omasarizad.github.io/alharamain-dga-theme/components.html
 - Changes: https://omasarizad.github.io/alharamain-dga-theme/changes.html
