@@ -35,6 +35,7 @@ After a visual change, re-shoot: `node scripts/shoot-components.js` (needs `play
 5. **Scope:** only the homepage is real. Every other link or button gets `data-out-of-scope` and shows the toast.
 6. One logical change per commit, with a plain-English subject and the *why* in the body. When a change affects how the real site should be updated, update `DEV-GUIDE.md` too.
 7. Check visually at 1440px and 390px before pushing.
+8. **No pull requests.** When the work is done and checked, merge it into `main` and push. The owner doesn't review PRs for this repo.
 
 ## Live
 
