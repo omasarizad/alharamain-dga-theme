@@ -1,5 +1,25 @@
 # Applying Platforms Code to the real site
 
+## Summary of changes
+
+| Area | Before (current site) | After (Platforms Code) |
+|---|---|---|
+| Styling system | Tailwind v4 + daisyUI theme, custom teal/gold colors | Tailwind v4 with the official Platforms Code tokens only; daisyUI removed |
+| Brand colors | Teal `#3e7869` primary, gold `#a68c30` accents | SA-flag green `primary-600` `#1b8354`; gold kept only as a secondary accent |
+| Typography | "Saudi" display font, IBM Plex, Noto Naskh | IBM Plex Sans Arabic everywhere (Naskh only for Quran/hadith text) on the official type scale |
+| Header | Two rows: logo + search + Google search + language, then icon nav with gold pill | One 72px sticky bar: logo, text menu with green selected cell, search and language actions |
+| Mobile navigation | Collapsed header row | Drawer (`<dialog>`) opened from a menu button below 1100px |
+| Hero | None (live bar directly under header) | Green hero with title, subtitle and search |
+| Live lessons bar | Green strip with buttons | Info inline alert |
+| Section headings | Decorative font, gold subtitles, centered | Left-aligned `display-xs` title, gray subtitle, "عرض الكل" outline button |
+| Filters | Gold segmented control | Underline tabs (الكل / المسجد الحرام / المسجد النبوي) |
+| Cards | daisyUI card, heavy shadow, asymmetric image corners, gold scholar link, pill tags | Bordered card, 16px corners, shadow on hover, 16:10 image, green scholar, square tags |
+| Tilawat stats | Mint boxes | White tiles with green circular icons |
+| المختارات | Pill toggle | Underline tabs |
+| Footer | Gold footer + separate copyright strip | Single dark-green footer: logo, title, about, link columns, copyright |
+| Feedback | — | Toast component for transient messages |
+| Accessibility | — | Visible 2px focus outline, keyboard tabs, skip link, RTL logical properties |
+
 What changes in the Al-Haramain Next.js app (Tailwind v4 + daisyUI) to match the prototype. Everything is **Tailwind utilities on Platforms Code tokens**. No Platforms Code web components or React wrappers are needed.
 
 Every snippet below is generated from `scripts/build-home.py`, the same code that builds the prototype, so it's always current. Convert `class=` to `className=` in JSX.

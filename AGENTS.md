@@ -19,7 +19,7 @@ tailwind/app.css + index.html ──tailwindcss──▶ css/app.css
 - `js/home.js`: vanilla JS for the filter tabs (`aria-selected`), the mobile drawer (`<dialog>`) and the out-of-scope toast.
 - `js/proto-bar.js`: the prototype bottom bar on every page.
 - `DEV-GUIDE.md`: the guide for developers updating the real site. It's rendered into `changes.html`, and `<!-- snippet:NAME -->` markers are filled from `build-home.py`.
-- `scripts/build-changes.py`: builds `changes.html` (the guide plus the commit log since the Tailwind rebuild).
+- `scripts/build-changes.py`: builds `changes.html` from `DEV-GUIDE.md` (a description of what changed, not a commit log; history is on GitHub).
 - `scripts/shoot-components.js` writes `assets/ours/*.png` (our version of each component). `assets/official/*.png` are reference shots of the official web components. `scripts/build-components.py` builds `components.html` from them.
 - `.github/workflows/pages.yml`: builds everything and deploys to GitHub Pages on every push to `main`.
 
@@ -33,7 +33,7 @@ After a visual change, re-shoot: `node scripts/shoot-components.js` (needs `play
 3. **Logical properties** (`ps/pe`, `start/end`) so RTL works. Keep the 2px black focus outline.
 4. **Gotchas:** the footer dark green is `success-900` (`--colors-green-900`). `text-md` (16/24) is added by `build-theme.py` because `core.css` has no class for it. The header menu collapses below 1100px into the drawer.
 5. **Scope:** only the homepage is real. Every other link or button gets `data-out-of-scope` and shows the toast.
-6. One logical change per commit, with a plain-English subject and the *why* in the body. The commit log on `changes.html` starts at the commit whose subject begins "Rebuild the homepage in Tailwind".
+6. One logical change per commit, with a plain-English subject and the *why* in the body. When a change affects how the real site should be updated, update `DEV-GUIDE.md` too.
 7. Check visually at 1440px and 390px before pushing.
 
 ## Live
