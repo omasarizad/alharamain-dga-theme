@@ -205,3 +205,34 @@
   .alert-error   { background: var(--dga-error-light);   color: var(--dga-neutral-800); border-color: var(--dga-error); }
 
 }
+
+/* ---- 5. Prototype scope guard (js/prototype-guard.js) ----------------- */
+[data-out-of-scope] { cursor: pointer; }
+
+.proto-toast {
+  position: fixed;
+  inset-inline: 16px;
+  bottom: 24px;
+  margin-inline: auto;
+  max-width: 420px;
+  z-index: 10000;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-radius: var(--dga-radius-md);
+  border-inline-start: 4px solid var(--dga-info);
+  background: var(--dga-neutral-800);
+  color: var(--dga-white);
+  box-shadow: var(--dga-shadow-md);
+  font-family: var(--dga-font-sans);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.proto-toast.is-visible { opacity: 1; transform: none; }
+.proto-toast svg { flex: none; margin-top: 2px; color: #84caff; }
+.proto-toast strong { display: block; font-weight: 600; font-size: 15px; }
+.proto-toast span { display: block; text-align: start; font-size: 13px; color: var(--dga-neutral-300); }
+@media (prefers-reduced-motion: reduce) { .proto-toast { transition: none; } }

@@ -7,6 +7,7 @@ the Saudi DGA Platforms Code design system. Unofficial prototype.
 
 - `index.html`: static homepage (Next.js scripts stripped, assets point at the live origin)
 - `css/1nh40b4t7dbv_.css`, `css/2wj4kx8h2005e.css`: the site's original CSS (only `url()` paths rewritten)
+- `js/prototype-guard.js`: blocks out-of-scope links/forms and shows a toast. Build step: every non-home `<a href>` becomes `href="#" data-out-of-scope`
 - `css/dga-theme.css`: **all theme work goes here**. It loads last and remaps the site's daisyUI/Tailwind variables onto DGA tokens
 - `NOTES.md`: project notes and caveats. Shown at the top of `changes.html`, so keep it current
 - `scripts/build-changes.py`: builds `changes.html` from git history (CI runs it; the output is gitignored)
