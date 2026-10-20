@@ -11,10 +11,13 @@
 | Mobile navigation | Collapsed header row | Drawer (`<dialog>`) opened from a menu button below 1100px |
 | Hero | None (live bar directly under header) | Green hero with title, subtitle and search |
 | Live lessons bar | Green strip with buttons | Info inline alert |
-| Section headings | Decorative font, gold subtitles, centered | Left-aligned `display-xs` title, gray subtitle, "عرض الكل" outline button |
+| Section headings | Decorative font, gold subtitles, centered | Start-aligned `display-sm` bold title, `text-md` description, 40px "عرض الكل" outline button (SDGA Home Page Template) |
 | Filters | Gold segmented control | Underline tabs (الكل / المسجد الحرام / المسجد النبوي) |
 | Cards | daisyUI card, heavy shadow, asymmetric image corners, gold scholar link, pill tags | Bordered card, 16px corners, shadow on hover, 16:10 image, green scholar, square tags |
-| Tilawat stats | Mint boxes | White tiles with green circular icons |
+| Tilawat stats | Mint boxes | Open centered stats: 56px green circle icon, `display-lg` number, label (template's "about us" stats) |
+| Section backgrounds | Mixed tints and borders | Alternating white and `neutral-50`, no borders |
+| Partners | Logo in the footer | **شركاء النجاح** section with bordered logo cards, above a **تاريخ آخر تعديل** strip |
+| Top strip | Dark prototype banner | `neutral-100` 32px strip in the Digital Stamp style (prototype notice only, no government claim) |
 | المختارات | Pill toggle | Underline tabs |
 | Footer | Gold footer + separate copyright strip | Single dark-green footer as in the SDGA Figma library: link columns, contact and accessibility icons, legal row |
 | Feedback | — | Toast component for transient messages |
@@ -56,7 +59,7 @@ Every snippet below is generated from `scripts/build-home.py`, the same code tha
 | Footer gold background | `secondary` | **`success-900`** | `#074c30` |
 | `--radius-box` 1rem / `--radius-field` .5rem | | `rounded-lg` (16px) cards · `rounded-sm` (4px) buttons, inputs, tags · `rounded-md` (8px) alerts, images | |
 | `shadow-[0px_1px_17px_0px_#00000021]` | | none at rest (1px border), `shadow-md` on hover | |
-| Text sizes | | `text-display-xs` (24/32) section titles · `text-lg` (18/28) card titles · `text-md` (16/24) body · `text-sm` (14/20) · `text-xs` (12/18) meta · `text-2xs` (10/14) tags | |
+| Text sizes | | `text-display-sm` (30/38) section titles · `text-display-xs` (24/32) · `text-lg` (18/28) card titles · `text-md` (16/24) body · `text-sm` (14/20) · `text-xs` (12/18) meta · `text-2xs` (10/14) tags | |
 
 > **Gotcha:** the footer's "DarkGreen" is `--colors-green-900` in Platforms Code, so it's `bg-success-900`, not `bg-primary-900`.
 
@@ -90,7 +93,11 @@ Replaces the green "البث المباشر للدروس" bar. The "جدول ا�
 
 ### Section header and "عرض الكل"
 
-Title `text-display-xs font-bold text-neutral-800`, subtitle `text-md text-neutral-500`. Drop the decorative heading font and the gold subtitle color. "عرض الكل" is a secondary-outline button (`dga-button-v2`, md).
+As in the SDGA Home Page Template: title `text-display-sm font-bold text-black`, description `text-md text-black` 24px below it. "عرض الكل" is a 40px secondary-outline button (`dga-button-v2`, lg) at the far end, aligned to the title. Drop the decorative heading font and the gold subtitle color. Sections alternate `bg-white` and `bg-neutral-50` with no borders.
+
+### Partners and last modified
+
+From the template: a **شركاء النجاح** section (`text-display-sm` title, `rounded-lg border-neutral-300 bg-white p-4` logo cards), then a white strip with **تاريخ آخر تعديل** in `text-sm` just above the footer. Add the template's carousel arrows only when there are more logos than fit on one row.
 
 <!-- snippet:button -->
 
@@ -132,7 +139,7 @@ Replaces daisyUI `badge` and the outlined gold/green pills. Tags are square-corn
 
 ### Tilawat stats (`dga-featured-icon`)
 
-Replaces the mint stat boxes. Each stat is a white `rounded-lg` tile with a 48px `bg-primary-50 text-primary-600` circle icon, a `text-display-xs font-bold` value and a `text-sm` label.
+Replaces the mint stat boxes, following the stats in the SDGA Home Page Template. Each stat is open and centered, with no border: a 56px `bg-primary-50 text-primary-600` circle icon (28px icon), a `text-display-lg text-primary-800` value and a `text-md text-neutral-800` label. Four across from 640px, two across below.
 
 <!-- snippet:featured-icon -->
 

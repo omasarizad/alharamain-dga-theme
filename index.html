@@ -13,11 +13,11 @@
 <script src="js/home.js" defer></script>
 <script src="js/proto-bar.js" defer></script>
 </head>
-<body class="bg-neutral-50 font-sans text-neutral-700 antialiased">
+<body class="bg-white font-sans text-neutral-700 antialiased">
 <a href="#main" class="sr-only z-50 rounded-sm bg-primary-600 px-4 py-2 text-white focus:not-sr-only focus:fixed focus:start-4 focus:top-2">تخطَّ إلى المحتوى</a>
 
-<div role="note" class="bg-neutral-800 px-4 py-2 text-center text-sm font-medium text-white">
-  نموذج تجريبي غير رسمي: الصفحة الرئيسية لمنصة الحرمين بأسلوب كود المنصات (DGA) · ليس الموقع الرسمي
+<div role="note" class="flex min-h-8 items-center bg-neutral-100 px-4 py-1.5 text-sm font-medium text-black sm:px-8">
+  نموذج تجريبي غير رسمي لمنصة الحرمين بأسلوب كود المنصات · ليس الموقع الرسمي
 </div>
 
 <header data-pc="dga-header-v2" class="sticky top-0 z-40 border-b border-neutral-200 bg-white">
@@ -63,12 +63,12 @@
 
   <section aria-labelledby="h-memory" class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8 py-10 sm:py-16">
     
-    <div class="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-      <div>
-        <h2 id="h-memory" class="text-display-xs font-bold text-neutral-800">ذاكرة الحرمين</h2>
-        <p class="mt-1 text-md text-neutral-500">مواد مختارة من أرشيف تسجيلات الحرمين</p>
+    <div class="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row">
+      <div class="flex flex-col gap-6">
+        <h2 id="h-memory" class="text-display-sm font-bold text-black">ذاكرة الحرمين</h2>
+        <p class="max-w-[964px] text-md text-black">مواد مختارة من أرشيف تسجيلات الحرمين</p>
       </div>
-      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-8 px-3 text-sm bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
+      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-10 px-4 text-md bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
     </div>
     <div data-pc="dga-tabs-v2" role="tablist" aria-label="تصفية حسب المكان" data-filter="memory" class="mb-6 flex overflow-x-auto border-b border-neutral-200"><button data-pc="dga-tab" type="button" role="tab" aria-selected="true" data-value="all" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black">الكل</button><button data-pc="dga-tab" type="button" role="tab" aria-selected="false" data-value="haram" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black">المسجد الحرام</button><button data-pc="dga-tab" type="button" role="tab" aria-selected="false" data-value="nabawi" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black">المسجد النبوي</button></div>
     <div id="grid-memory" class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,272px),1fr))] gap-6">
@@ -162,15 +162,15 @@
       </article></div>
   </section>
 
-  <section aria-labelledby="h-lessons" class="border-y border-neutral-200 bg-white py-10 sm:py-16">
+  <section aria-labelledby="h-lessons" class="bg-neutral-50 py-10 sm:py-16">
     <div class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8">
       
-    <div class="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-      <div>
-        <h2 id="h-lessons" class="text-display-xs font-bold text-neutral-800">الدروس والمحاضرات</h2>
-        <p class="mt-1 text-md text-neutral-500">الدروس العلمية والدورات والمحاضرات التي قدّمها العلماء في الحرمين الشريفين</p>
+    <div class="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row">
+      <div class="flex flex-col gap-6">
+        <h2 id="h-lessons" class="text-display-sm font-bold text-black">الدروس والمحاضرات</h2>
+        <p class="max-w-[964px] text-md text-black">الدروس العلمية والدورات والمحاضرات التي قدّمها العلماء في الحرمين الشريفين</p>
       </div>
-      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-8 px-3 text-sm bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
+      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-10 px-4 text-md bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
     </div>
       <div data-pc="dga-tabs-v2" role="tablist" aria-label="تصفية حسب المكان" data-filter="lessons" class="mb-6 flex overflow-x-auto border-b border-neutral-200"><button data-pc="dga-tab" type="button" role="tab" aria-selected="true" data-value="all" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black">الكل</button><button data-pc="dga-tab" type="button" role="tab" aria-selected="false" data-value="haram" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black">المسجد الحرام</button><button data-pc="dga-tab" type="button" role="tab" aria-selected="false" data-value="nabawi" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black">المسجد النبوي</button></div>
       <div id="grid-lessons" class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,272px),1fr))] gap-6">
@@ -267,12 +267,12 @@
 
   <section aria-labelledby="h-speeches" class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8 py-10 sm:py-16">
     
-    <div class="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-      <div>
-        <h2 id="h-speeches" class="text-display-xs font-bold text-neutral-800">الخطب المنبرية</h2>
-        <p class="mt-1 text-md text-neutral-500">خطب الجمعة والعيدين وعرفة والاستسقاء والكسوف</p>
+    <div class="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row">
+      <div class="flex flex-col gap-6">
+        <h2 id="h-speeches" class="text-display-sm font-bold text-black">الخطب المنبرية</h2>
+        <p class="max-w-[964px] text-md text-black">خطب الجمعة والعيدين وعرفة والاستسقاء والكسوف</p>
       </div>
-      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-8 px-3 text-sm bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
+      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-10 px-4 text-md bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
     </div>
     <div id="grid-speeches" class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,272px),1fr))] gap-6">
       <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
@@ -365,28 +365,28 @@
       </article></div>
   </section>
 
-  <section aria-labelledby="h-tilawat" class="border-y border-primary-200 bg-primary-25 py-10 sm:py-16">
+  <section aria-labelledby="h-tilawat" class="bg-neutral-50 py-10 sm:py-16">
     <div class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8">
       
-    <div class="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-      <div>
-        <h2 id="h-tilawat" class="text-display-xs font-bold text-neutral-800">التلاوات</h2>
-        <p class="mt-1 text-md text-neutral-500">تلاوات أئمة الحرمين في الصلوات والتراويح، وأدعية القنوت، والمصاحف الكاملة</p>
+    <div class="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row">
+      <div class="flex flex-col gap-6">
+        <h2 id="h-tilawat" class="text-display-sm font-bold text-black">التلاوات</h2>
+        <p class="max-w-[964px] text-md text-black">تلاوات أئمة الحرمين في الصلوات والتراويح، وأدعية القنوت، والمصاحف الكاملة</p>
       </div>
-      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-8 px-3 text-sm bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
+      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-10 px-4 text-md bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
     </div>
-      <div class="mb-8 grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4"><div class="flex items-center gap-4 rounded-lg border border-neutral-200 bg-white p-5">
-          <span data-pc="dga-featured-icon" class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-600"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-6 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/quran-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/quran-01-stroke.svg) center/contain no-repeat"></span></span>
-          <div><p class="text-display-xs font-bold text-neutral-800 tabular-nums">+٣٠٣١</p><p class="text-sm font-medium text-neutral-500">إجمالي التلاوات</p></div>
-        </div><div class="flex items-center gap-4 rounded-lg border border-neutral-200 bg-white p-5">
-          <span data-pc="dga-featured-icon" class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-600"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-6 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/prayer-rug-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/prayer-rug-01-stroke.svg) center/contain no-repeat"></span></span>
-          <div><p class="text-display-xs font-bold text-neutral-800 tabular-nums">+٢٠</p><p class="text-sm font-medium text-neutral-500">أدعية القنوت</p></div>
-        </div><div class="flex items-center gap-4 rounded-lg border border-neutral-200 bg-white p-5">
-          <span data-pc="dga-featured-icon" class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-600"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-6 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/user-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/user-stroke.svg) center/contain no-repeat"></span></span>
-          <div><p class="text-display-xs font-bold text-neutral-800 tabular-nums">+٢٠</p><p class="text-sm font-medium text-neutral-500">القارئ</p></div>
-        </div><div class="flex items-center gap-4 rounded-lg border border-neutral-200 bg-white p-5">
-          <span data-pc="dga-featured-icon" class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-600"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-6 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mic-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mic-01-stroke.svg) center/contain no-repeat"></span></span>
-          <div><p class="text-display-xs font-bold text-neutral-800 tabular-nums">+٤</p><p class="text-sm font-medium text-neutral-500">مصحف مسجل</p></div>
+      <div class="mx-auto mb-10 grid max-w-[992px] grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-8"><div class="flex flex-col items-center gap-6 rounded-lg p-4 text-center">
+          <span data-pc="dga-featured-icon" class="inline-flex size-14 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-600"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-7 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/quran-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/quran-01-stroke.svg) center/contain no-repeat"></span></span>
+          <div class="flex flex-col gap-2"><p class="text-display-lg tracking-tight text-primary-800 tabular-nums">+٣٠٣١</p><p class="text-md text-neutral-800">إجمالي التلاوات</p></div>
+        </div><div class="flex flex-col items-center gap-6 rounded-lg p-4 text-center">
+          <span data-pc="dga-featured-icon" class="inline-flex size-14 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-600"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-7 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/prayer-rug-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/prayer-rug-01-stroke.svg) center/contain no-repeat"></span></span>
+          <div class="flex flex-col gap-2"><p class="text-display-lg tracking-tight text-primary-800 tabular-nums">+٢٠</p><p class="text-md text-neutral-800">أدعية القنوت</p></div>
+        </div><div class="flex flex-col items-center gap-6 rounded-lg p-4 text-center">
+          <span data-pc="dga-featured-icon" class="inline-flex size-14 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-600"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-7 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/user-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/user-stroke.svg) center/contain no-repeat"></span></span>
+          <div class="flex flex-col gap-2"><p class="text-display-lg tracking-tight text-primary-800 tabular-nums">+٢٠</p><p class="text-md text-neutral-800">القارئ</p></div>
+        </div><div class="flex flex-col items-center gap-6 rounded-lg p-4 text-center">
+          <span data-pc="dga-featured-icon" class="inline-flex size-14 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-600"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-7 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mic-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mic-01-stroke.svg) center/contain no-repeat"></span></span>
+          <div class="flex flex-col gap-2"><p class="text-display-lg tracking-tight text-primary-800 tabular-nums">+٤</p><p class="text-md text-neutral-800">مصحف مسجل</p></div>
         </div></div>
       <div id="grid-tilawat" class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,272px),1fr))] gap-6">
       <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
@@ -438,12 +438,12 @@
 
   <section aria-labelledby="h-selected" class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8 py-10 sm:py-16">
     
-    <div class="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-      <div>
-        <h2 id="h-selected" class="text-display-xs font-bold text-neutral-800">المختارات</h2>
-        <p class="mt-1 text-md text-neutral-500">فوائد منتقاة من الخطب والدروس والمحاضرات</p>
+    <div class="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row">
+      <div class="flex flex-col gap-6">
+        <h2 id="h-selected" class="text-display-sm font-bold text-black">المختارات</h2>
+        <p class="max-w-[964px] text-md text-black">فوائد منتقاة من الخطب والدروس والمحاضرات</p>
       </div>
-      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-8 px-3 text-sm bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
+      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-10 px-4 text-md bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
     </div>
     <div data-pc="dga-tabs-v2" role="tablist" aria-label="نوع المحتوى" data-filter="selected" class="mb-6 flex overflow-x-auto border-b border-neutral-200"><button data-pc="dga-tab" type="button" role="tab" aria-selected="true" data-value="video" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>مرئي</button><button data-pc="dga-tab" type="button" role="tab" aria-selected="false" data-value="text" data-out-of-scope class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/file-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/file-01-stroke.svg) center/contain no-repeat"></span>نصي</button></div>
     <div id="grid-selected" class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,272px),1fr))] gap-6">
@@ -481,6 +481,19 @@
         </div>
       </article></div>
   </section>
+
+  <section aria-labelledby="h-partners" class="bg-neutral-50 py-10">
+    <div class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8 flex flex-col gap-8">
+      <h2 id="h-partners" class="text-display-sm font-bold text-black">شركاء النجاح</h2>
+      <ul class="flex flex-wrap gap-4">
+        <li><a href="#" data-out-of-scope class="flex h-[120px] w-[136px] items-center justify-center rounded-lg border border-neutral-300 bg-white p-4 hover:border-neutral-400"><img src="https://alharamain-app-beta.it4islam.com/_next/static/media/ty-logo.1xz5pe5m0wvvz.svg" alt="تبيان" width="104" height="59" class="w-[104px]"></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="bg-white py-4">
+    <p class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8 text-sm text-black">تاريخ آخر تعديل: 20/10/2026</p>
+  </div>
 </main>
 
 <footer data-pc="dga-footer" class="bg-success-900 px-4 text-white sm:px-8">

@@ -13,11 +13,13 @@ the official one. Developers copy these class lists into the real site's JSX.
 """
 import html
 import json
+from datetime import date
 from pathlib import Path
 
 PC_ICONS = "https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg"
 ORIGIN = "https://alharamain-app-beta.it4islam.com"
 LOGO = ORIGIN + "/_next/static/media/HeaderLogo.04gd8s9fp0yqt.svg"
+TIBYAN_LOGO = ORIGIN + "/_next/static/media/ty-logo.1xz5pe5m0wvvz.svg"
 HERO_IMAGE = ORIGIN + "/images/lessons-bg.webp"
 FALLBACK_IMAGE = {"haram": ORIGIN + "/images/maka.webp", "nabawi": ORIGIN + "/images/madina.webp"}
 
@@ -72,8 +74,8 @@ def tag(label, variant="neutral", size="sm"):
 
 
 def featured_icon(name, size="lg", color="brand"):
-    """dga-featured-icon (circle, light). lg = 48px/24px icon, md = 40px/20px icon."""
-    box, ico = {"lg": ("size-12", 6), "md": ("size-10", 5)}[size]
+    """dga-featured-icon (circle, light). xl = 56px/28px icon, lg = 48px/24px, md = 40px/20px."""
+    box, ico = {"xl": ("size-14", 7), "lg": ("size-12", 6), "md": ("size-10", 5)}[size]
     colors = {"brand": "bg-primary-50 text-primary-600", "info": "bg-info-50 text-info-700"}[color]
     return f'<span data-pc="dga-featured-icon" class="inline-flex {box} shrink-0 items-center justify-center rounded-full {colors}">{icon(name, ico)}</span>'
 
@@ -148,13 +150,15 @@ def card(item, show_place=True):
 # ---- Page sections -----------------------------------------------------------
 
 def section_head(sec, key):
+    """Section title as in the SDGA Home Page Template: display-sm bold title and a
+    text-md description, with the secondary action at the far end."""
     return f"""
-    <div class="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-      <div>
-        <h2 id="h-{key}" class="text-display-xs font-bold text-neutral-800">{e(sec['title'])}</h2>
-        <p class="mt-1 text-md text-neutral-500">{e(sec['subtitle'])}</p>
+    <div class="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row">
+      <div class="flex flex-col gap-6">
+        <h2 id="h-{key}" class="text-display-sm font-bold text-black">{e(sec['title'])}</h2>
+        <p class="max-w-[964px] text-md text-black">{e(sec['subtitle'])}</p>
       </div>
-      {button("عرض الكل", "secondary-outline", "md", 'type="button" data-out-of-scope')}
+      {button("عرض الكل", "secondary-outline", "lg", 'type="button" data-out-of-scope')}
     </div>"""
 
 
@@ -279,9 +283,9 @@ def footer(d):
 def build(d):
     S = d["sections"]
     stats = "".join(
-        f"""<div class="flex items-center gap-4 rounded-lg border border-neutral-200 bg-white p-5">
-          {featured_icon(STAT_ICON.get(s['label'], 'star'))}
-          <div><p class="text-display-xs font-bold text-neutral-800 tabular-nums">+{e(s['value'])}</p><p class="text-sm font-medium text-neutral-500">{e(s['label'])}</p></div>
+        f"""<div class="flex flex-col items-center gap-6 rounded-lg p-4 text-center">
+          {featured_icon(STAT_ICON.get(s['label'], 'star'), "xl")}
+          <div class="flex flex-col gap-2"><p class="text-display-lg tracking-tight text-primary-800 tabular-nums">+{e(s['value'])}</p><p class="text-md text-neutral-800">{e(s['label'])}</p></div>
         </div>"""
         for s in S["tilawat"].get("stats", [])
     )
@@ -300,11 +304,11 @@ def build(d):
 <script src="js/home.js" defer></script>
 <script src="js/proto-bar.js" defer></script>
 </head>
-<body class="bg-neutral-50 font-sans text-neutral-700 antialiased">
+<body class="bg-white font-sans text-neutral-700 antialiased">
 <a href="#main" class="sr-only z-50 rounded-sm bg-primary-600 px-4 py-2 text-white focus:not-sr-only focus:fixed focus:start-4 focus:top-2">تخطَّ إلى المحتوى</a>
 
-<div role="note" class="bg-neutral-800 px-4 py-2 text-center text-sm font-medium text-white">
-  نموذج تجريبي غير رسمي: الصفحة الرئيسية لمنصة الحرمين بأسلوب كود المنصات (DGA) · ليس الموقع الرسمي
+<div role="note" class="flex min-h-8 items-center bg-neutral-100 px-4 py-1.5 text-sm font-medium text-black sm:px-8">
+  نموذج تجريبي غير رسمي لمنصة الحرمين بأسلوب كود المنصات · ليس الموقع الرسمي
 </div>
 {header(d)}
 {drawer(d)}
@@ -333,7 +337,7 @@ def build(d):
     {grid(S['memory']['items'], 'memory')}
   </section>
 
-  <section aria-labelledby="h-lessons" class="border-y border-neutral-200 bg-white py-10 sm:py-16">
+  <section aria-labelledby="h-lessons" class="bg-neutral-50 py-10 sm:py-16">
     <div class="{CONTAINER}">
       {section_head(S['lessons'], 'lessons')}
       {tabs(PLACE_TABS, 'lessons', 'all', 'تصفية حسب المكان')}
@@ -346,10 +350,10 @@ def build(d):
     {grid(S['speeches']['items'], 'speeches')}
   </section>
 
-  <section aria-labelledby="h-tilawat" class="border-y border-primary-200 bg-primary-25 py-10 sm:py-16">
+  <section aria-labelledby="h-tilawat" class="bg-neutral-50 py-10 sm:py-16">
     <div class="{CONTAINER}">
       {section_head(S['tilawat'], 'tilawat')}
-      <div class="mb-8 grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4">{stats}</div>
+      <div class="mx-auto mb-10 grid max-w-[992px] grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-8">{stats}</div>
       {grid(S['tilawat']['items'], 'tilawat')}
     </div>
   </section>
@@ -359,6 +363,19 @@ def build(d):
     {tabs([("video", "مرئي", "video-01"), ("text", "نصي", "file-01")], 'selected', 'video', 'نوع المحتوى', out_of_scope=("text",))}
     {grid(S['selected']['items'], 'selected', show_place=False)}
   </section>
+
+  <section aria-labelledby="h-partners" class="bg-neutral-50 py-10">
+    <div class="{CONTAINER} flex flex-col gap-8">
+      <h2 id="h-partners" class="text-display-sm font-bold text-black">{e(d['footer'].get('partners_title') or 'شركاء النجاح')}</h2>
+      <ul class="flex flex-wrap gap-4">
+        <li><a href="#" data-out-of-scope class="flex h-[120px] w-[136px] items-center justify-center rounded-lg border border-neutral-300 bg-white p-4 hover:border-neutral-400"><img src="{TIBYAN_LOGO}" alt="تبيان" width="104" height="59" class="w-[104px]"></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="bg-white py-4">
+    <p class="{CONTAINER} text-sm text-black">تاريخ آخر تعديل: {date.today():%d/%m/%Y}</p>
+  </div>
 </main>
 {footer(d)}
 
