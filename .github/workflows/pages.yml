@@ -23,16 +23,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # full history for changes.html
-      - name: Build changes.html and components.html
+          fetch-depth: 0   # full history for the commit log in changes.html
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install
         run: |
-          pip install --quiet beautifulsoup4
-          python3 scripts/build-changes.py
+          npm ci
+          pip install --quiet markdown
+      - name: Build page, Tailwind CSS, components and changes
+        run: |
+          python3 scripts/build-home.py
+          npm run build:css
           python3 scripts/build-components.py
+          python3 scripts/build-changes.py
       - name: Assemble site
         run: |
           mkdir _site
-          cp -R index.html changes.html components.html css js .nojekyll _site/
+          cp -R index.html changes.html components.html css js assets .nojekyll _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

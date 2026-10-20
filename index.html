@@ -5,441 +5,505 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>منصة الحرمين | نموذج كود المنصات</title>
-<meta name="description" content="نموذج تجريبي غير رسمي: إعادة بناء الصفحة الرئيسية لمنصة الحرمين باستخدام مكوّنات كود المنصات">
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@platformscode/core@0.0.53/dist/core/core.css">
-<link rel="stylesheet" href="css/home.css">
-<script>
-  /* @platformscode/core ships no icon SVGs; resolve every icon name to
-     @platformscode/icons on the CDN. Must run before core.esm.js loads. */
-  window.GDSIcons = { map: new (class extends Map {
-    get(k) { return super.get(k) || "https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/" + (/-(stroke|solid)$/.test(k) ? k : k + "-stroke") + ".svg"; }
-  })() };
-</script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@platformscode/core@0.0.53/dist/core/core.esm.js"></script>
+<meta name="description" content="نموذج تجريبي غير رسمي: الصفحة الرئيسية لمنصة الحرمين بأسلوب كود المنصات (Tailwind)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/app.css">
 <script src="js/home.js" defer></script>
 <script src="js/proto-bar.js" defer></script>
 </head>
-<body>
-<a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+<body class="bg-neutral-50 font-sans text-neutral-700 antialiased">
+<a href="#main" class="sr-only z-50 rounded-sm bg-primary-600 px-4 py-2 text-white focus:not-sr-only focus:fixed focus:start-4 focus:top-2">تخطَّ إلى المحتوى</a>
 
-<div class="proto-banner text-sm-medium" role="note">
-  نموذج تجريبي غير رسمي: الصفحة الرئيسية لمنصة الحرمين مبنية بمكوّنات كود المنصات (DGA) · ليس الموقع الرسمي
+<div role="note" class="bg-neutral-800 px-4 py-2 text-center text-sm font-medium text-white">
+  نموذج تجريبي غير رسمي: الصفحة الرئيسية لمنصة الحرمين بأسلوب كود المنصات (DGA) · ليس الموقع الرسمي
 </div>
 
-<dga-header-v2 sticky divider>
-  <a class="brand" href="./" aria-label="منصة الحرمين، الرئيسية"><img src="https://alharamain-app-beta.it4islam.com/_next/static/media/HeaderLogo.04gd8s9fp0yqt.svg" alt="منصة الحرمين" width="190" height="56"></a>
-  <dga-header-menu-v2 class="desktop-nav" label="القائمة الرئيسية"><dga-header-menu-item label="الرئيسية" href="./" selected></dga-header-menu-item><dga-header-menu-item label="الدروس والمحاضرات" href="#" data-out-of-scope></dga-header-menu-item><dga-header-menu-item label="الخطب" href="#" data-out-of-scope></dga-header-menu-item><dga-header-menu-item label="التلاوات" href="#" data-out-of-scope></dga-header-menu-item><dga-header-menu-item label="المكتبة" href="#" data-out-of-scope></dga-header-menu-item><dga-header-menu-item label="الحج والعمرة" href="#" data-out-of-scope></dga-header-menu-item><dga-header-menu-item label="الأذان" href="#" data-out-of-scope></dga-header-menu-item><dga-header-menu-item label="المختارات" href="#" data-out-of-scope></dga-header-menu-item></dga-header-menu-v2>
-  <dga-header-actions label="أدوات">
-    <dga-header-search-action label="بحث" placeholder="ابحث في المنصة" search-label="بحث" close-label="إغلاق البحث" speech-lang="ar"></dga-header-search-action>
-    <dga-header-action class="lang-action" label="English" icon="globe" data-out-of-scope></dga-header-action>
-    <dga-header-action class="menu-action" label="القائمة" icon="menu-01" aria-controls="nav-drawer"></dga-header-action>
-  </dga-header-actions>
-</dga-header-v2>
+<header data-pc="dga-header-v2" class="sticky top-0 z-40 border-b border-neutral-200 bg-white">
+  <div class="flex h-18 items-center justify-between gap-4 px-4 xl:px-8">
+    <a href="./" class="shrink-0" aria-label="منصة الحرمين، الرئيسية"><img src="https://alharamain-app-beta.it4islam.com/_next/static/media/HeaderLogo.04gd8s9fp0yqt.svg" alt="منصة الحرمين" width="190" height="56" class="h-10 w-auto sm:h-12"></a>
+    <nav data-pc="dga-header-menu-v2" aria-label="القائمة الرئيسية" class="hidden flex-1 min-[1100px]:block">
+      <ul class="flex"><li><a data-pc="dga-header-menu-item" href="./" aria-current="page" class="inline-flex h-18 items-center rounded-xs bg-primary-600 px-6 text-md font-semibold whitespace-nowrap text-white">الرئيسية</a></li><li><a data-pc="dga-header-menu-item" href="#" data-out-of-scope class="inline-flex h-18 items-center rounded-xs px-6 text-md font-medium whitespace-nowrap text-black hover:bg-neutral-100">الدروس والمحاضرات</a></li><li><a data-pc="dga-header-menu-item" href="#" data-out-of-scope class="inline-flex h-18 items-center rounded-xs px-6 text-md font-medium whitespace-nowrap text-black hover:bg-neutral-100">الخطب</a></li><li><a data-pc="dga-header-menu-item" href="#" data-out-of-scope class="inline-flex h-18 items-center rounded-xs px-6 text-md font-medium whitespace-nowrap text-black hover:bg-neutral-100">التلاوات</a></li><li><a data-pc="dga-header-menu-item" href="#" data-out-of-scope class="inline-flex h-18 items-center rounded-xs px-6 text-md font-medium whitespace-nowrap text-black hover:bg-neutral-100">المكتبة</a></li><li><a data-pc="dga-header-menu-item" href="#" data-out-of-scope class="inline-flex h-18 items-center rounded-xs px-6 text-md font-medium whitespace-nowrap text-black hover:bg-neutral-100">الحج والعمرة</a></li><li><a data-pc="dga-header-menu-item" href="#" data-out-of-scope class="inline-flex h-18 items-center rounded-xs px-6 text-md font-medium whitespace-nowrap text-black hover:bg-neutral-100">الأذان</a></li><li><a data-pc="dga-header-menu-item" href="#" data-out-of-scope class="inline-flex h-18 items-center rounded-xs px-6 text-md font-medium whitespace-nowrap text-black hover:bg-neutral-100">المختارات</a></li></ul>
+    </nav>
+    <div data-pc="dga-header-actions" role="group" aria-label="أدوات" class="flex items-center">
+      <button data-pc="dga-header-search-action" type="button" data-out-of-scope class="inline-flex h-18 items-center gap-1 rounded-xs px-3 text-md font-medium text-black hover:bg-neutral-100 sm:px-6"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-6 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/search-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/search-01-stroke.svg) center/contain no-repeat"></span><span class="max-sm:sr-only">بحث</span></button>
+      <button data-pc="dga-header-action" type="button" data-out-of-scope class="inline-flex h-18 items-center gap-1 rounded-xs px-3 text-md font-medium text-black hover:bg-neutral-100 sm:px-6 max-sm:hidden"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-6 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/globe-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/globe-stroke.svg) center/contain no-repeat"></span><span>English</span></button>
+      <button data-pc="dga-header-action" type="button" id="menu-button" aria-controls="nav-drawer" aria-expanded="false" class="inline-flex h-18 items-center gap-1 rounded-xs px-3 text-md font-medium text-black hover:bg-neutral-100 sm:px-6 min-[1100px]:hidden"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-6 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/menu-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/menu-01-stroke.svg) center/contain no-repeat"></span><span>القائمة</span></button>
+    </div>
+  </div>
+</header>
 
-<dga-drawer-v2 id="nav-drawer" placement="start" size="sm" label="القائمة الرئيسية">
-  <dga-drawer-header show-close-button close-label="إغلاق القائمة"><span class="text-lg-bold">منصة الحرمين</span></dga-drawer-header>
-  <dga-drawer-body>
-    <dga-drawer-nav label="القائمة الرئيسية"><dga-drawer-nav-item href="./" icon="home-01" active>الرئيسية</dga-drawer-nav-item><dga-drawer-nav-item href="#" icon="teacher" data-out-of-scope>الدروس</dga-drawer-nav-item><dga-drawer-nav-item href="#" icon="presentation-01" data-out-of-scope>المحاضرات</dga-drawer-nav-item><dga-drawer-nav-item href="#" icon="certificate-01" data-out-of-scope>الدورات</dga-drawer-nav-item><dga-drawer-nav-item href="#" icon="book-open-01" data-out-of-scope>السلاسل العلمية</dga-drawer-nav-item><dga-drawer-nav-item href="#" icon="mosque-01" data-out-of-scope>الخطب</dga-drawer-nav-item><dga-drawer-nav-item href="#" icon="quran-01" data-out-of-scope>التلاوات</dga-drawer-nav-item><dga-drawer-nav-item href="#" icon="library" data-out-of-scope>المكتبة</dga-drawer-nav-item><dga-drawer-nav-item href="#" icon="kaaba-01" data-out-of-scope>الحج والعمرة</dga-drawer-nav-item><dga-drawer-nav-item href="#" icon="mosque-02" data-out-of-scope>الأذان</dga-drawer-nav-item><dga-drawer-nav-item href="#" icon="star" data-out-of-scope>المختارات</dga-drawer-nav-item></dga-drawer-nav>
-  </dga-drawer-body>
-</dga-drawer-v2>
+<dialog data-pc="dga-drawer-v2" id="nav-drawer" aria-labelledby="drawer-title"
+  class="fixed inset-y-0 start-0 m-0 h-dvh max-h-none w-80 max-w-[calc(100%-48px)] bg-white text-neutral-800 shadow-2xl backdrop:bg-black/50">
+  <div data-pc="dga-drawer-header" class="flex items-center justify-between border-b border-neutral-200 px-6 py-4">
+    <p id="drawer-title" class="text-lg font-bold">منصة الحرمين</p>
+    <button type="button" data-close class="inline-flex size-8 items-center justify-center rounded-sm text-black hover:bg-neutral-100" aria-label="إغلاق القائمة"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-5 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/multiplication-sign-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/multiplication-sign-stroke.svg) center/contain no-repeat"></span></button>
+  </div>
+  <nav data-pc="dga-drawer-nav" aria-label="القائمة الرئيسية" class="p-6"><ul class="flex flex-col gap-1"><li><a data-pc="dga-drawer-nav-item" href="./" aria-current="page" class="group flex h-9 items-center gap-2 rounded-sm px-4 text-sm font-semibold text-neutral-800 hover:bg-neutral-100 aria-[current=page]:bg-primary-50 aria-[current=page]:text-primary-700"><span class="h-6 w-1.5 rounded-full bg-transparent group-aria-[current=page]:bg-primary-600"></span><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/home-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/home-01-stroke.svg) center/contain no-repeat"></span><span>الرئيسية</span></a></li><li><a data-pc="dga-drawer-nav-item" href="#" data-out-of-scope class="group flex h-9 items-center gap-2 rounded-sm px-4 text-sm font-semibold text-neutral-800 hover:bg-neutral-100 aria-[current=page]:bg-primary-50 aria-[current=page]:text-primary-700"><span class="h-6 w-1.5 rounded-full bg-transparent group-aria-[current=page]:bg-primary-600"></span><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/teacher-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/teacher-stroke.svg) center/contain no-repeat"></span><span>الدروس</span></a></li><li><a data-pc="dga-drawer-nav-item" href="#" data-out-of-scope class="group flex h-9 items-center gap-2 rounded-sm px-4 text-sm font-semibold text-neutral-800 hover:bg-neutral-100 aria-[current=page]:bg-primary-50 aria-[current=page]:text-primary-700"><span class="h-6 w-1.5 rounded-full bg-transparent group-aria-[current=page]:bg-primary-600"></span><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/presentation-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/presentation-01-stroke.svg) center/contain no-repeat"></span><span>المحاضرات</span></a></li><li><a data-pc="dga-drawer-nav-item" href="#" data-out-of-scope class="group flex h-9 items-center gap-2 rounded-sm px-4 text-sm font-semibold text-neutral-800 hover:bg-neutral-100 aria-[current=page]:bg-primary-50 aria-[current=page]:text-primary-700"><span class="h-6 w-1.5 rounded-full bg-transparent group-aria-[current=page]:bg-primary-600"></span><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/certificate-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/certificate-01-stroke.svg) center/contain no-repeat"></span><span>الدورات</span></a></li><li><a data-pc="dga-drawer-nav-item" href="#" data-out-of-scope class="group flex h-9 items-center gap-2 rounded-sm px-4 text-sm font-semibold text-neutral-800 hover:bg-neutral-100 aria-[current=page]:bg-primary-50 aria-[current=page]:text-primary-700"><span class="h-6 w-1.5 rounded-full bg-transparent group-aria-[current=page]:bg-primary-600"></span><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/book-open-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/book-open-01-stroke.svg) center/contain no-repeat"></span><span>السلاسل العلمية</span></a></li><li><a data-pc="dga-drawer-nav-item" href="#" data-out-of-scope class="group flex h-9 items-center gap-2 rounded-sm px-4 text-sm font-semibold text-neutral-800 hover:bg-neutral-100 aria-[current=page]:bg-primary-50 aria-[current=page]:text-primary-700"><span class="h-6 w-1.5 rounded-full bg-transparent group-aria-[current=page]:bg-primary-600"></span><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span><span>الخطب</span></a></li><li><a data-pc="dga-drawer-nav-item" href="#" data-out-of-scope class="group flex h-9 items-center gap-2 rounded-sm px-4 text-sm font-semibold text-neutral-800 hover:bg-neutral-100 aria-[current=page]:bg-primary-50 aria-[current=page]:text-primary-700"><span class="h-6 w-1.5 rounded-full bg-transparent group-aria-[current=page]:bg-primary-600"></span><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/quran-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/quran-01-stroke.svg) center/contain no-repeat"></span><span>التلاوات</span></a></li><li><a data-pc="dga-drawer-nav-item" href="#" data-out-of-scope class="group flex h-9 items-center gap-2 rounded-sm px-4 text-sm font-semibold text-neutral-800 hover:bg-neutral-100 aria-[current=page]:bg-primary-50 aria-[current=page]:text-primary-700"><span class="h-6 w-1.5 rounded-full bg-transparent group-aria-[current=page]:bg-primary-600"></span><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/library-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/library-stroke.svg) center/contain no-repeat"></span><span>المكتبة</span></a></li><li><a data-pc="dga-drawer-nav-item" href="#" data-out-of-scope class="group flex h-9 items-center gap-2 rounded-sm px-4 text-sm font-semibold text-neutral-800 hover:bg-neutral-100 aria-[current=page]:bg-primary-50 aria-[current=page]:text-primary-700"><span class="h-6 w-1.5 rounded-full bg-transparent group-aria-[current=page]:bg-primary-600"></span><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/kaaba-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/kaaba-01-stroke.svg) center/contain no-repeat"></span><span>الحج والعمرة</span></a></li><li><a data-pc="dga-drawer-nav-item" href="#" data-out-of-scope class="group flex h-9 items-center gap-2 rounded-sm px-4 text-sm font-semibold text-neutral-800 hover:bg-neutral-100 aria-[current=page]:bg-primary-50 aria-[current=page]:text-primary-700"><span class="h-6 w-1.5 rounded-full bg-transparent group-aria-[current=page]:bg-primary-600"></span><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-02-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-02-stroke.svg) center/contain no-repeat"></span><span>الأذان</span></a></li><li><a data-pc="dga-drawer-nav-item" href="#" data-out-of-scope class="group flex h-9 items-center gap-2 rounded-sm px-4 text-sm font-semibold text-neutral-800 hover:bg-neutral-100 aria-[current=page]:bg-primary-50 aria-[current=page]:text-primary-700"><span class="h-6 w-1.5 rounded-full bg-transparent group-aria-[current=page]:bg-primary-600"></span><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/star-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/star-stroke.svg) center/contain no-repeat"></span><span>المختارات</span></a></li></ul></nav>
+</dialog>
 
 <main id="main">
-  <section class="hero" aria-labelledby="hero-title" style="--hero-image:url('https://alharamain-app-beta.it4islam.com/images/lessons-bg.webp')">
-    <div class="container hero-inner">
-      <dga-tag label="رسالة وهداية" variant="on-color" size="md"></dga-tag>
-      <h1 id="hero-title" class="display-lg-bold">منصة الحرمين</h1>
-      <p class="text-xl-regular hero-sub">الدروس والمحاضرات والخطب والتلاوات من المسجد الحرام والمسجد النبوي في مكان واحد.</p>
-      <form class="hero-search" role="search" data-out-of-scope-form>
-        <dga-search-box placeholder="ابحث عن درس، خطبة، تلاوة، أو شيخ" size="lg" speech-lang="ar" accessible-label="ابحث في المنصة"></dga-search-box>
-        <dga-button-v2 label="بحث" variant="primary" size="lg" type="submit" on-color></dga-button-v2>
+  <section aria-labelledby="hero-title" class="relative isolate bg-primary-900 bg-cover bg-center text-white"
+    style="background-image:linear-gradient(to left,rgb(16 70 49/.92),rgb(20 87 58/.75)),url('https://alharamain-app-beta.it4islam.com/images/lessons-bg.webp')">
+    <div class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8 flex flex-col items-start gap-4 pt-10 pb-16 sm:pt-16 sm:pb-24">
+      <span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-6 px-3 text-xs font-medium bg-white/20 text-white">رسالة وهداية</span>
+      <h1 id="hero-title" class="text-display-md font-bold sm:text-display-lg">منصة الحرمين</h1>
+      <p class="max-w-[46ch] text-xl text-white/80">الدروس والمحاضرات والخطب والتلاوات من المسجد الحرام والمسجد النبوي في مكان واحد.</p>
+      <form role="search" class="mt-4 flex w-full max-w-[720px] flex-col gap-2 sm:flex-row">
+        <label data-pc="dga-search-box" class="flex h-10 w-full items-center gap-2 rounded-sm border border-neutral-400 bg-white ps-4 pe-2 text-black focus-within:border-primary-600 focus-within:ring-3 focus-within:ring-primary-500/20"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-5 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/search-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/search-01-stroke.svg) center/contain no-repeat"></span><span class="sr-only">ابحث عن درس، خطبة، تلاوة، أو شيخ</span><input type="search" name="q" placeholder="ابحث عن درس، خطبة، تلاوة، أو شيخ" class="h-full min-w-0 flex-1 bg-transparent text-md text-neutral-700 placeholder:text-neutral-500 focus:outline-none"><span title="بحث صوتي"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-5 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mic-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mic-01-stroke.svg) center/contain no-repeat"></span></span></label>
+        <button data-pc="dga-button-v2" type="submit" class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-10 px-4 text-md bg-white text-black hover:bg-neutral-100 active:bg-neutral-200"><span>بحث</span></button>
       </form>
     </div>
   </section>
 
-  <div class="container">
-    <dga-inline-alert class="live-alert" type="info" colored lead-text="البث المباشر للدروس" helper-text="تابع الدروس العلمية المنقولة مباشرة من المسجد الحرام والمسجد النبوي." is-close-button="false"></dga-inline-alert>
+  <div class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8 relative -mt-8">
+    <div data-pc="dga-inline-alert" role="status" class="flex items-start gap-3 rounded-md border border-info-200 bg-info-25 px-6 py-4 text-neutral-700"><span data-pc="dga-featured-icon" class="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-info-50 text-info-700"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-5 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/live-streaming-02-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/live-streaming-02-stroke.svg) center/contain no-repeat"></span></span><div><p class="mb-1 text-md font-semibold">البث المباشر للدروس</p><p class="text-sm">تابع الدروس العلمية المنقولة مباشرة من المسجد الحرام والمسجد النبوي.</p></div></div>
   </div>
 
-  <section class="section container" aria-labelledby="h-memory">
+  <section aria-labelledby="h-memory" class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8 py-10 sm:py-16">
     
-    <div class="section-head">
+    <div class="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
       <div>
-        <h2 class="display-xs-bold" id="h-memory">ذاكرة الحرمين</h2>
-        <p class="text-md-regular section-sub">مواد مختارة من أرشيف تسجيلات الحرمين</p>
+        <h2 id="h-memory" class="text-display-xs font-bold text-neutral-800">ذاكرة الحرمين</h2>
+        <p class="mt-1 text-md text-neutral-500">مواد مختارة من أرشيف تسجيلات الحرمين</p>
       </div>
-      <dga-button-v2 class="see-all" label="عرض الكل" variant="secondary-outline" size="md" trail-icon data-out-of-scope></dga-button-v2>
+      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-8 px-3 text-sm bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
     </div>
-    
-    <dga-tabs-v2 class="place-tabs" value="all" data-filter="memory" accessible-label="تصفية حسب المكان">
-      <dga-tab value="all" label="الكل"></dga-tab>
-      <dga-tab value="haram" label="المسجد الحرام"></dga-tab>
-      <dga-tab value="nabawi" label="المسجد النبوي"></dga-tab>
-    </dga-tabs-v2>
-    <div class="card-grid" id="grid-memory">
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://alharamain-app-beta.it4islam.com/images/maka.webp" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>١٦ شعبان ١٣٩٧ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>فيديو</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>أذان الفجر</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">الشيخ عبدالحفيظ خوج</p>
-          <div class="card-tags"><dga-tag label="الأذان" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://alharamain-app-beta.it4islam.com/images/maka.webp" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٢٧ رمضان ١٤٠١ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>فيديو</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>أذان العشاء</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">الشيخ علي أحمد الملا</p>
-          <div class="card-tags"><dga-tag label="الأذان" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/10/فضيلة-الشيخ-د.-محمد-بن-محمد-المختار.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٢٠ صفر ١٤١٧ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>مقدمة عن البيوع (001)</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الدكتور محمد بن محمد المختار الشنقيطي</p>
-          <div class="card-tags"><dga-tag label="الدروس" variant="neutral" size="sm"></dga-tag><dga-tag label="زاد المستقنع" variant="neutral" size="sm"></dga-tag><dga-tag label="الفقه" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/10/فضيلة-الشيخ-د.-محمد-بن-محمد-المختار.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٢١ صفر ١٤١٧ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>من قوله: &quot;ويشترط التراضي منهما&quot; (002)</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الدكتور محمد بن محمد المختار الشنقيطي</p>
-          <div class="card-tags"><dga-tag label="الدروس" variant="neutral" size="sm"></dga-tag><dga-tag label="زاد المستقنع" variant="neutral" size="sm"></dga-tag><dga-tag label="الفقه" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/10/علي-بن-عبد-الرحمن-الحذيفي.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>١٧ محرم ١٤٠٢ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>الاستقامة</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الدكتور علي بن عبدالرحمن الحذيفي</p>
-          <div class="card-tags"><dga-tag label="الخطب" variant="neutral" size="sm"></dga-tag><dga-tag label="تربية إيمانية" variant="neutral" size="sm"></dga-tag><dga-tag label="الجمعة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/10/علي-بن-عبد-الرحمن-الحذيفي.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٣ جمادى الآخرة ١٤٠٥ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>شكر النعمة</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الدكتور علي بن عبدالرحمن الحذيفي</p>
-          <div class="card-tags"><dga-tag label="الخطب" variant="neutral" size="sm"></dga-tag><dga-tag label="تربية إيمانية" variant="neutral" size="sm"></dga-tag><dga-tag label="الجمعة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الاستاذ-الدكتور-عبدالعزيز-بن-صالح-العبيد.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٢٩ رمضان ١٤٠٢ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>فيديو</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>دعاء القنوت</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الأستاذ الدكتور عبد العزيز بن صالح العبيد</p>
-          <div class="card-tags"><dga-tag label="التلاوات" variant="neutral" size="sm"></dga-tag><dga-tag label="أدعية القنوت" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/07/عبدالرحمن-بن-عبدالعزيز-السديس.png" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>١ محرم ١٤٠٨ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>فيديو</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>سورة محمد</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">الشيخ عبدالرحمن بن عبدالعزيز السديس</p>
-          <div class="card-tags"><dga-tag label="التلاوات" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2></div>
+    <div data-pc="dga-tabs-v2" role="tablist" aria-label="تصفية حسب المكان" data-filter="memory" class="mb-6 flex overflow-x-auto border-b border-neutral-200"><button data-pc="dga-tab" type="button" role="tab" aria-selected="true" data-value="all" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black">الكل</button><button data-pc="dga-tab" type="button" role="tab" aria-selected="false" data-value="haram" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black">المسجد الحرام</button><button data-pc="dga-tab" type="button" role="tab" aria-selected="false" data-value="nabawi" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black">المسجد النبوي</button></div>
+    <div id="grid-memory" class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,272px),1fr))] gap-6">
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://alharamain-app-beta.it4islam.com/images/maka.webp" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>١٦ شعبان ١٣٩٧ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>فيديو</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">أذان الفجر</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">الشيخ عبدالحفيظ خوج</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الأذان</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://alharamain-app-beta.it4islam.com/images/maka.webp" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٢٧ رمضان ١٤٠١ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>فيديو</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">أذان العشاء</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">الشيخ علي أحمد الملا</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الأذان</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/10/فضيلة-الشيخ-د.-محمد-بن-محمد-المختار.jpg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٢٠ صفر ١٤١٧ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">مقدمة عن البيوع (001)</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الدكتور محمد بن محمد المختار الشنقيطي</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الدروس</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">زاد المستقنع</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الفقه</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/10/فضيلة-الشيخ-د.-محمد-بن-محمد-المختار.jpg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٢١ صفر ١٤١٧ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">من قوله: &quot;ويشترط التراضي منهما&quot; (002)</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الدكتور محمد بن محمد المختار الشنقيطي</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الدروس</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">زاد المستقنع</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الفقه</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/10/علي-بن-عبد-الرحمن-الحذيفي.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>١٧ محرم ١٤٠٢ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">الاستقامة</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الدكتور علي بن عبدالرحمن الحذيفي</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الخطب</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">تربية إيمانية</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الجمعة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/10/علي-بن-عبد-الرحمن-الحذيفي.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٣ جمادى الآخرة ١٤٠٥ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">شكر النعمة</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الدكتور علي بن عبدالرحمن الحذيفي</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الخطب</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">تربية إيمانية</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الجمعة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الاستاذ-الدكتور-عبدالعزيز-بن-صالح-العبيد.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٢٩ رمضان ١٤٠٢ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>فيديو</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">دعاء القنوت</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الأستاذ الدكتور عبد العزيز بن صالح العبيد</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">التلاوات</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">أدعية القنوت</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/07/عبدالرحمن-بن-عبدالعزيز-السديس.png" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>١ محرم ١٤٠٨ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>فيديو</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">سورة محمد</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">الشيخ عبدالرحمن بن عبدالعزيز السديس</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">التلاوات</span></div>
+        </div>
+      </article></div>
   </section>
 
-  <section class="section section--tinted" aria-labelledby="h-lessons">
-    <div class="container">
+  <section aria-labelledby="h-lessons" class="border-y border-neutral-200 bg-white py-10 sm:py-16">
+    <div class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8">
       
-    <div class="section-head">
+    <div class="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
       <div>
-        <h2 class="display-xs-bold" id="h-lessons">الدروس والمحاضرات</h2>
-        <p class="text-md-regular section-sub">الدروس العلمية والدورات والمحاضرات التي قدّمها العلماء في الحرمين الشريفين</p>
+        <h2 id="h-lessons" class="text-display-xs font-bold text-neutral-800">الدروس والمحاضرات</h2>
+        <p class="mt-1 text-md text-neutral-500">الدروس العلمية والدورات والمحاضرات التي قدّمها العلماء في الحرمين الشريفين</p>
       </div>
-      <dga-button-v2 class="see-all" label="عرض الكل" variant="secondary-outline" size="md" trail-icon data-out-of-scope></dga-button-v2>
+      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-8 px-3 text-sm bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
     </div>
-      
-    <dga-tabs-v2 class="place-tabs" value="all" data-filter="lessons" accessible-label="تصفية حسب المكان">
-      <dga-tab value="all" label="الكل"></dga-tab>
-      <dga-tab value="haram" label="المسجد الحرام"></dga-tab>
-      <dga-tab value="nabawi" label="المسجد النبوي"></dga-tab>
-    </dga-tabs-v2>
-      <div class="card-grid" id="grid-lessons">
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/07/يوسف-بن-عبدالله-الوابل.png" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٢٣ ذو القعدة ١٤٤٣ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>فيديو</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>{وَمَا خَلَقْتُ الْجِنَّ وَالْإِنْسَ إِلَّا لِيَعْبُدُونِ}</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">الشيخ يوسف بن عبدالله الوابل</p>
-          <div class="card-tags"><dga-tag label="المحاضرات" variant="neutral" size="sm"></dga-tag><dga-tag label="عقيدة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/09/الشيخ-عبد-السلام-الشويعر.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٧ ذو القعدة ١٤٤١ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>فيديو</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>كتاب الطهارة- من قوله: «‌‌من باب ما يوجب الغسل وصفته» (5)</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الأستاذ الدكتور عبدالسلام بن محمد الشويعر</p>
-          <div class="card-tags"><dga-tag label="الدروس" variant="neutral" size="sm"></dga-tag><dga-tag label="منهج السالكين وتوضيح الفقه في الدين" variant="neutral" size="sm"></dga-tag><dga-tag label="الفقه" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الشيخ-الاستاذ-الدكتور-مسعود-بشير-المحمدي.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٢٤ ذو القعدة ١٤٤٦ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>مقاصد الحج</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الأستاذ الدكتور مسعود بن بشير المحمدي</p>
-          <div class="card-tags"><dga-tag label="السلاسل العلمية" variant="neutral" size="sm"></dga-tag><dga-tag label="الحج والعمرة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://alharamain-app-beta.it4islam.com/images/maka.webp" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>سلسلة محاضرات كيف نكون قدوة الثاني</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">الشيخ عبدالرحمن بن عبدالله السند</p>
-          <div class="card-tags"><dga-tag label="السلاسل العلمية" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://alharamain-app-beta.it4islam.com/images/maka.webp" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/book-02-stroke.svg" size="16" aria-hidden="true"></dga-icon>٥٦٩ درس</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>البرنامج العلمي بالمسجد الحرام لعام 1440</a></dga-card-title>
+      <div data-pc="dga-tabs-v2" role="tablist" aria-label="تصفية حسب المكان" data-filter="lessons" class="mb-6 flex overflow-x-auto border-b border-neutral-200"><button data-pc="dga-tab" type="button" role="tab" aria-selected="true" data-value="all" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black">الكل</button><button data-pc="dga-tab" type="button" role="tab" aria-selected="false" data-value="haram" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black">المسجد الحرام</button><button data-pc="dga-tab" type="button" role="tab" aria-selected="false" data-value="nabawi" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black">المسجد النبوي</button></div>
+      <div id="grid-lessons" class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,272px),1fr))] gap-6">
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/07/يوسف-بن-عبدالله-الوابل.png" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٢٣ ذو القعدة ١٤٤٣ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>فيديو</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">{وَمَا خَلَقْتُ الْجِنَّ وَالْإِنْسَ إِلَّا لِيَعْبُدُونِ}</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">الشيخ يوسف بن عبدالله الوابل</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">المحاضرات</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">عقيدة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/09/الشيخ-عبد-السلام-الشويعر.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٧ ذو القعدة ١٤٤١ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>فيديو</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">كتاب الطهارة- من قوله: «‌‌من باب ما يوجب الغسل وصفته» (5)</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الأستاذ الدكتور عبدالسلام بن محمد الشويعر</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الدروس</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">منهج السالكين وتوضيح الفقه في الدين</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الفقه</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الشيخ-الاستاذ-الدكتور-مسعود-بشير-المحمدي.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٢٤ ذو القعدة ١٤٤٦ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">مقاصد الحج</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الأستاذ الدكتور مسعود بن بشير المحمدي</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">السلاسل العلمية</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الحج والعمرة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://alharamain-app-beta.it4islam.com/images/maka.webp" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">سلسلة محاضرات كيف نكون قدوة الثاني</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">الشيخ عبدالرحمن بن عبدالله السند</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">السلاسل العلمية</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://alharamain-app-beta.it4islam.com/images/maka.webp" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/book-02-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/book-02-stroke.svg) center/contain no-repeat"></span>٥٦٩ درس</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">البرنامج العلمي بالمسجد الحرام لعام 1440</a>
+          </h3>
           
-          <div class="card-tags"><dga-tag label="الدورات" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الشيخ-الاستاذ-الدكتور-مسعود-بشير-المحمدي.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>١٥ محرم ١٤٤٧ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>الأمن الفكري وأثره في التحصين من فكر التطرف والغلو</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الأستاذ الدكتور مسعود بن بشير المحمدي</p>
-          <div class="card-tags"><dga-tag label="المحاضرات" variant="neutral" size="sm"></dga-tag><dga-tag label="أسرة ومجتمع" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/09/الشيخ-عبد-الله-الأمين-.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٢٠ محرم ١٤٤٧ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>من قوله تعالى: {هُوَ الَّذِي أَنْزَلَ عَلَيْكَ الْكِتَابَ مِنْهُ آيَاتٌ مُحْكَمَاتٌ هُنَّ أُمُّ الْكِتَابِ} (222)</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الأستاذ الدكتور عبدالله بن محمد الأمين</p>
-          <div class="card-tags"><dga-tag label="الدروس" variant="neutral" size="sm"></dga-tag><dga-tag label="معالم التنزيل - البغوي" variant="neutral" size="sm"></dga-tag><dga-tag label="التفسير" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الاستاذ-الدكتور-عبدالعزيز-بن-صالح-العبيد.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٢٧ ذو الحجة ١٤٤٦ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>هدي النبي  في رمضان</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الأستاذ الدكتور عبد العزيز بن صالح العبيد</p>
-          <div class="card-tags"><dga-tag label="السلاسل العلمية" variant="neutral" size="sm"></dga-tag><dga-tag label="عشر ذي الحجة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2></div>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الدورات</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الشيخ-الاستاذ-الدكتور-مسعود-بشير-المحمدي.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>١٥ محرم ١٤٤٧ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">الأمن الفكري وأثره في التحصين من فكر التطرف والغلو</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الأستاذ الدكتور مسعود بن بشير المحمدي</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">المحاضرات</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">أسرة ومجتمع</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/09/الشيخ-عبد-الله-الأمين-.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٢٠ محرم ١٤٤٧ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">من قوله تعالى: {هُوَ الَّذِي أَنْزَلَ عَلَيْكَ الْكِتَابَ مِنْهُ آيَاتٌ مُحْكَمَاتٌ هُنَّ أُمُّ الْكِتَابِ} (222)</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الأستاذ الدكتور عبدالله بن محمد الأمين</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الدروس</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">معالم التنزيل - البغوي</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">التفسير</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الاستاذ-الدكتور-عبدالعزيز-بن-صالح-العبيد.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٢٧ ذو الحجة ١٤٤٦ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">هدي النبي  في رمضان</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الأستاذ الدكتور عبد العزيز بن صالح العبيد</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">السلاسل العلمية</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">عشر ذي الحجة</span></div>
+        </div>
+      </article></div>
     </div>
   </section>
 
-  <section class="section container" aria-labelledby="h-speeches">
+  <section aria-labelledby="h-speeches" class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8 py-10 sm:py-16">
     
-    <div class="section-head">
+    <div class="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
       <div>
-        <h2 class="display-xs-bold" id="h-speeches">الخطب المنبرية</h2>
-        <p class="text-md-regular section-sub">خطب الجمعة والعيدين وعرفة والاستسقاء والكسوف</p>
+        <h2 id="h-speeches" class="text-display-xs font-bold text-neutral-800">الخطب المنبرية</h2>
+        <p class="mt-1 text-md text-neutral-500">خطب الجمعة والعيدين وعرفة والاستسقاء والكسوف</p>
       </div>
-      <dga-button-v2 class="see-all" label="عرض الكل" variant="secondary-outline" size="md" trail-icon data-out-of-scope></dga-button-v2>
+      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-8 px-3 text-sm bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
     </div>
-    <div class="card-grid" id="grid-speeches">
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/07/فـيـصل-بن-جمـيـل-غـزاوي.png" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>١٣ رجب ١٤٤٧ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>فيديو</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>خطبة الجمعة ١٣ رجب ١٤٤٧هـ</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">الشيخ فيصل بن جميل غزاوي</p>
-          <div class="card-tags"><dga-tag label="الجمعة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/07/أسـامـة-بن-عبـدالله-خـيـاط.png" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>١٩ ربيع الثاني ١٤٢٩ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>&quot;كلكم راع ومسؤول عن رعيته&quot;</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">الشيخ أسامة بن عبدالله خياط</p>
-          <div class="card-tags"><dga-tag label="أسرة ومجتمع" variant="neutral" size="sm"></dga-tag><dga-tag label="الجمعة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/10/حسين-بن-عبدالعزيز-آل-الشيخ.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٢٣ محرم ١٤٤٧ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>النميمة حكمها وأضرارها</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الدكتور حسين بن عبدالعزيز آل الشيخ</p>
-          <div class="card-tags"><dga-tag label="المناهي الشرعية" variant="neutral" size="sm"></dga-tag><dga-tag label="الجمعة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/10/حسين-بن-عبدالعزيز-آل-الشيخ.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٢٥ ذو الحجة ١٤٤٦ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>فضل اغتنام الأوقات</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الدكتور حسين بن عبدالعزيز آل الشيخ</p>
-          <div class="card-tags"><dga-tag label="تربية إيمانية" variant="neutral" size="sm"></dga-tag><dga-tag label="الجمعة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/07/أسـامـة-بن-عبـدالله-خـيـاط.png" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>٢٤ ذو الحجة ١٤٤٦ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>فيديو</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>وقفة المحاسبة والمراجعة</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">الشيخ أسامة بن عبدالله خياط</p>
-          <div class="card-tags"><dga-tag label="رقائق" variant="neutral" size="sm"></dga-tag><dga-tag label="الجمعة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/07/يـاسـر-بن-راشـد-الـدوسـري.png" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>١٧ ذو الحجة ١٤٤٦ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>فيديو</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>احفظ اللهَ يحفظك</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">الشيخ ياسر بن راشد الدوسري</p>
-          <div class="card-tags"><dga-tag label="الجمعة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/10/علي-بن-عبد-الرحمن-الحذيفي.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>١٦ ذو الحجة ١٤٤٦ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>من أسباب الرحمة</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الدكتور علي بن عبدالرحمن الحذيفي</p>
-          <div class="card-tags"><dga-tag label="تربية إيمانية" variant="neutral" size="sm"></dga-tag><dga-tag label="الجمعة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="haram">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/07/عبدالرحمن-بن-عبدالعزيز-السديس.png" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg" size="16" aria-hidden="true"></dga-icon><time>١٠ ذو الحجة ١٤٤٦ هـ</time></span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد الحرام</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>قصة الفداء</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">الشيخ عبدالرحمن بن عبدالعزيز السديس</p>
-          <div class="card-tags"><dga-tag label="تاريخ وسيرة" variant="neutral" size="sm"></dga-tag><dga-tag label="العيدين" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2></div>
+    <div id="grid-speeches" class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,272px),1fr))] gap-6">
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/07/فـيـصل-بن-جمـيـل-غـزاوي.png" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>١٣ رجب ١٤٤٧ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>فيديو</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">خطبة الجمعة ١٣ رجب ١٤٤٧هـ</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">الشيخ فيصل بن جميل غزاوي</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الجمعة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/07/أسـامـة-بن-عبـدالله-خـيـاط.png" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>١٩ ربيع الثاني ١٤٢٩ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">&quot;كلكم راع ومسؤول عن رعيته&quot;</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">الشيخ أسامة بن عبدالله خياط</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">أسرة ومجتمع</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الجمعة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/10/حسين-بن-عبدالعزيز-آل-الشيخ.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٢٣ محرم ١٤٤٧ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">النميمة حكمها وأضرارها</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الدكتور حسين بن عبدالعزيز آل الشيخ</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">المناهي الشرعية</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الجمعة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/10/حسين-بن-عبدالعزيز-آل-الشيخ.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٢٥ ذو الحجة ١٤٤٦ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">فضل اغتنام الأوقات</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الدكتور حسين بن عبدالعزيز آل الشيخ</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">تربية إيمانية</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الجمعة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/07/أسـامـة-بن-عبـدالله-خـيـاط.png" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>٢٤ ذو الحجة ١٤٤٦ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>فيديو</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">وقفة المحاسبة والمراجعة</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">الشيخ أسامة بن عبدالله خياط</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">رقائق</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الجمعة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/07/يـاسـر-بن-راشـد-الـدوسـري.png" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>١٧ ذو الحجة ١٤٤٦ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>فيديو</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">احفظ اللهَ يحفظك</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">الشيخ ياسر بن راشد الدوسري</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الجمعة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/10/علي-بن-عبد-الرحمن-الحذيفي.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>١٦ ذو الحجة ١٤٤٦ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">من أسباب الرحمة</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الدكتور علي بن عبدالرحمن الحذيفي</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">تربية إيمانية</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الجمعة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="haram" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/07/عبدالرحمن-بن-عبدالعزيز-السديس.png" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/calendar-03-stroke.svg) center/contain no-repeat"></span><time>١٠ ذو الحجة ١٤٤٦ هـ</time></span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد الحرام</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">قصة الفداء</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">الشيخ عبدالرحمن بن عبدالعزيز السديس</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">تاريخ وسيرة</span><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">العيدين</span></div>
+        </div>
+      </article></div>
   </section>
 
-  <section class="section section--brand" aria-labelledby="h-tilawat">
-    <div class="container">
+  <section aria-labelledby="h-tilawat" class="border-y border-primary-200 bg-primary-25 py-10 sm:py-16">
+    <div class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8">
       
-    <div class="section-head">
+    <div class="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
       <div>
-        <h2 class="display-xs-bold" id="h-tilawat">التلاوات</h2>
-        <p class="text-md-regular section-sub">تلاوات أئمة الحرمين في الصلوات والتراويح، وأدعية القنوت، والمصاحف الكاملة</p>
+        <h2 id="h-tilawat" class="text-display-xs font-bold text-neutral-800">التلاوات</h2>
+        <p class="mt-1 text-md text-neutral-500">تلاوات أئمة الحرمين في الصلوات والتراويح، وأدعية القنوت، والمصاحف الكاملة</p>
       </div>
-      <dga-button-v2 class="see-all" label="عرض الكل" variant="secondary-outline" size="md" trail-icon data-out-of-scope></dga-button-v2>
+      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-8 px-3 text-sm bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
     </div>
-      <div class="stats"><div class="stat">
-          <dga-featured-icon size="lg" color="brand" variant="light" icon="quran-01"></dga-featured-icon>
-          <div><p class="display-xs-bold stat-value">+٣٠٣١</p><p class="text-sm-medium stat-label">إجمالي التلاوات</p></div>
-        </div><div class="stat">
-          <dga-featured-icon size="lg" color="brand" variant="light" icon="prayer-rug-01"></dga-featured-icon>
-          <div><p class="display-xs-bold stat-value">+٢٠</p><p class="text-sm-medium stat-label">أدعية القنوت</p></div>
-        </div><div class="stat">
-          <dga-featured-icon size="lg" color="brand" variant="light" icon="user"></dga-featured-icon>
-          <div><p class="display-xs-bold stat-value">+٢٠</p><p class="text-sm-medium stat-label">القارئ</p></div>
-        </div><div class="stat">
-          <dga-featured-icon size="lg" color="brand" variant="light" icon="mic-01"></dga-featured-icon>
-          <div><p class="display-xs-bold stat-value">+٤</p><p class="text-sm-medium stat-label">مصحف مسجل</p></div>
+      <div class="mb-8 grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4"><div class="flex items-center gap-4 rounded-lg border border-neutral-200 bg-white p-5">
+          <span data-pc="dga-featured-icon" class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-600"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-6 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/quran-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/quran-01-stroke.svg) center/contain no-repeat"></span></span>
+          <div><p class="text-display-xs font-bold text-neutral-800 tabular-nums">+٣٠٣١</p><p class="text-sm font-medium text-neutral-500">إجمالي التلاوات</p></div>
+        </div><div class="flex items-center gap-4 rounded-lg border border-neutral-200 bg-white p-5">
+          <span data-pc="dga-featured-icon" class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-600"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-6 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/prayer-rug-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/prayer-rug-01-stroke.svg) center/contain no-repeat"></span></span>
+          <div><p class="text-display-xs font-bold text-neutral-800 tabular-nums">+٢٠</p><p class="text-sm font-medium text-neutral-500">أدعية القنوت</p></div>
+        </div><div class="flex items-center gap-4 rounded-lg border border-neutral-200 bg-white p-5">
+          <span data-pc="dga-featured-icon" class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-600"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-6 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/user-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/user-stroke.svg) center/contain no-repeat"></span></span>
+          <div><p class="text-display-xs font-bold text-neutral-800 tabular-nums">+٢٠</p><p class="text-sm font-medium text-neutral-500">القارئ</p></div>
+        </div><div class="flex items-center gap-4 rounded-lg border border-neutral-200 bg-white p-5">
+          <span data-pc="dga-featured-icon" class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-600"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-6 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mic-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mic-01-stroke.svg) center/contain no-repeat"></span></span>
+          <div><p class="text-display-xs font-bold text-neutral-800 tabular-nums">+٤</p><p class="text-sm font-medium text-neutral-500">مصحف مسجل</p></div>
         </div></div>
-      <div class="card-grid" id="grid-tilawat">
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://alharamain-app-beta.it4islam.com/images/madina.webp" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>دعاء ختم القرآن</a></dga-card-title>
+      <div id="grid-tilawat" class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,272px),1fr))] gap-6">
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://alharamain-app-beta.it4islam.com/images/madina.webp" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">دعاء ختم القرآن</a>
+          </h3>
           
-          <div class="card-tags"><dga-tag label="أدعية القنوت" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://alharamain-app-beta.it4islam.com/images/madina.webp" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>دعاء ختم القرآن</a></dga-card-title>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">أدعية القنوت</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://alharamain-app-beta.it4islam.com/images/madina.webp" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">دعاء ختم القرآن</a>
+          </h3>
           
-          <div class="card-tags"><dga-tag label="رمضان ١٤١٢هـ" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://alharamain-app-beta.it4islam.com/images/madina.webp" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>دعاء ختم القرآن</a></dga-card-title>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">رمضان ١٤١٢هـ</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://alharamain-app-beta.it4islam.com/images/madina.webp" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">دعاء ختم القرآن</a>
+          </h3>
           
-          <div class="card-tags"><dga-tag label="رمضان ١٤١٧هـ" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="nabawi">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://alharamain-app-beta.it4islam.com/images/madina.webp" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>المسجد النبوي</span><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg" size="16" aria-hidden="true"></dga-icon>صوت</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>دعاء ختم القرآن</a></dga-card-title>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">رمضان ١٤١٧هـ</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="nabawi" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://alharamain-app-beta.it4islam.com/images/madina.webp" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/mosque-01-stroke.svg) center/contain no-repeat"></span>المسجد النبوي</span><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/headphones-stroke.svg) center/contain no-repeat"></span>صوت</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">دعاء ختم القرآن</a>
+          </h3>
           
-          <div class="card-tags"><dga-tag label="رمضان ١٤١٦هـ" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2></div>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">رمضان ١٤١٦هـ</span></div>
+        </div>
+      </article></div>
     </div>
   </section>
 
-  <section class="section container" aria-labelledby="h-selected">
+  <section aria-labelledby="h-selected" class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8 py-10 sm:py-16">
     
-    <div class="section-head">
+    <div class="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
       <div>
-        <h2 class="display-xs-bold" id="h-selected">المختارات</h2>
-        <p class="text-md-regular section-sub">فوائد منتقاة من الخطب والدروس والمحاضرات</p>
+        <h2 id="h-selected" class="text-display-xs font-bold text-neutral-800">المختارات</h2>
+        <p class="mt-1 text-md text-neutral-500">فوائد منتقاة من الخطب والدروس والمحاضرات</p>
       </div>
-      <dga-button-v2 class="see-all" label="عرض الكل" variant="secondary-outline" size="md" trail-icon data-out-of-scope></dga-button-v2>
+      <button data-pc="dga-button-v2" type="button" data-out-of-scope class="inline-flex shrink-0 items-center justify-center gap-1 rounded-sm font-medium transition-colors h-8 px-3 text-sm bg-transparent text-black ring-1 ring-inset ring-neutral-300 hover:bg-neutral-100 active:bg-neutral-200"><span>عرض الكل</span></button>
     </div>
-    <dga-tabs-v2 value="video" accessible-label="نوع المحتوى" data-out-of-scope-tabs>
-      <dga-tab value="video" label="مرئي" icon="video-01"></dga-tab>
-      <dga-tab value="text" label="نصي" icon="file-01"></dga-tab>
-    </dga-tabs-v2>
-    <div class="card-grid" id="grid-selected">
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الاستاذ-الدكتور-سليمان-بن-صالح-الغصن.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>فيديو</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>الكرسي في الصلاة.. بين الحاجة والتساهل</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الأستاذ الدكتور سليمان بن صالح الغصن</p>
-          <div class="card-tags"><dga-tag label="الصلاة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الاستاذ-الدكتور-سليمان-بن-صالح-الغصن.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>فيديو</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>هل يُشرع التلفظ بالنية؟</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الأستاذ الدكتور سليمان بن صالح الغصن</p>
-          <div class="card-tags"><dga-tag label="الصلاة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2>
-      <dga-card-v2 class="content-card" effect="stroke" width="100%" min-width="0" data-place="">
-        <dga-card-content slot="card-content">
-          <img class="card-img" src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الاستاذ-الدكتور-سليمان-بن-صالح-الغصن.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250">
-          <div class="card-meta text-xs-regular"><span class="meta"><dga-icon src="https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg" size="16" aria-hidden="true"></dga-icon>فيديو</span></div>
-          <dga-card-title><a href="#" data-out-of-scope>هل ما زلت تُصلّي بأخطاء الطفولة؟</a></dga-card-title>
-          <p class="card-scholar text-sm-regular">فضيلة الشيخ الأستاذ الدكتور سليمان بن صالح الغصن</p>
-          <div class="card-tags"><dga-tag label="الصلاة" variant="neutral" size="sm"></dga-tag></div>
-        </dga-card-content>
-      </dga-card-v2></div>
+    <div data-pc="dga-tabs-v2" role="tablist" aria-label="نوع المحتوى" data-filter="selected" class="mb-6 flex overflow-x-auto border-b border-neutral-200"><button data-pc="dga-tab" type="button" role="tab" aria-selected="true" data-value="video" class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>مرئي</button><button data-pc="dga-tab" type="button" role="tab" aria-selected="false" data-value="text" data-out-of-scope class="relative inline-flex shrink-0 items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black aria-selected:font-semibold aria-selected:text-black after:absolute after:inset-x-4 after:bottom-0 after:h-[3px] after:rounded-full after:bg-transparent hover:after:bg-neutral-300 aria-selected:after:bg-primary-600 aria-selected:hover:bg-transparent focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-black"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/file-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/file-01-stroke.svg) center/contain no-repeat"></span>نصي</button></div>
+    <div id="grid-selected" class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,272px),1fr))] gap-6">
+      <article data-pc="dga-card-v2" data-place="" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الاستاذ-الدكتور-سليمان-بن-صالح-الغصن.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>فيديو</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">الكرسي في الصلاة.. بين الحاجة والتساهل</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الأستاذ الدكتور سليمان بن صالح الغصن</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الصلاة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الاستاذ-الدكتور-سليمان-بن-صالح-الغصن.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>فيديو</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">هل يُشرع التلفظ بالنية؟</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الأستاذ الدكتور سليمان بن صالح الغصن</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الصلاة</span></div>
+        </div>
+      </article>
+      <article data-pc="dga-card-v2" data-place="" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <div data-pc="dga-card-content" class="flex flex-1 flex-col">
+          <img src="https://cdn.isdarat-alharamain.com/uploads/2026/09/فضيلة-الاستاذ-الدكتور-سليمان-بن-صالح-الغصن.jpeg" alt="" loading="lazy" decoding="async" width="400" height="250" class="aspect-[16/10] w-full rounded-md bg-neutral-100 object-cover">
+          <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500"><span class="inline-flex items-center gap-1"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-4 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/video-01-stroke.svg) center/contain no-repeat"></span>فيديو</span></div>
+          <h3 data-pc="dga-card-title" class="mt-3 text-lg font-bold text-neutral-700">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">هل ما زلت تُصلّي بأخطاء الطفولة؟</a>
+          </h3>
+          <p class="mt-1 text-sm text-primary-600">فضيلة الشيخ الأستاذ الدكتور سليمان بن صالح الغصن</p>
+          <div class="mt-auto flex flex-wrap gap-1 pt-3"><span data-pc="dga-tag" class="inline-flex items-center justify-center gap-1 rounded-sm h-5 px-3 text-2xs font-semibold border border-neutral-200 bg-neutral-50 text-neutral-800">الصلاة</span></div>
+        </div>
+      </article></div>
   </section>
 </main>
 
-<dga-footer id="site-footer" background="DarkGreen"
-  main-title="منصة الحرمين"
-  main-description="جهاز حكومي مرتبط بالملك مباشرة يُعنى بكل ما يتعلق بالشأن الديني في المسجد الحرام والمسجد النبوي"
-  main-image="https://alharamain-app-beta.it4islam.com/_next/static/media/Logo.2kxvzq5udaci_.svg"
-  copyright="جميع الحقوق محفوظة لرئاسة الشؤون الدينية بالمسجد الحرام والمسجد النبوي ١٤٤٨ هـ ©"></dga-footer>
+<footer data-pc="dga-footer" class="bg-success-900 px-4 text-white sm:px-8">
+  <div class="mx-auto max-w-[1280px] py-6">
+    <div class="my-10 flex flex-col gap-2 sm:my-16">
+      <img src="https://alharamain-app-beta.it4islam.com/_next/static/media/Logo.2kxvzq5udaci_.svg" alt="" width="160" height="80" class="mb-4 h-16 w-auto self-start">
+      <p class="text-display-md font-bold sm:text-display-2xl">منصة الحرمين</p>
+      <p class="max-w-3xl text-lg sm:text-display-xs">جهاز حكومي مرتبط بالملك مباشرة يُعنى بكل ما يتعلق بالشأن الديني في المسجد الحرام والمسجد النبوي</p>
+    </div>
+    <nav aria-label="روابط التذييل" class="mb-12 flex flex-wrap justify-between gap-6 py-4 sm:mb-20"><div class="flex min-w-[180px] flex-col gap-2"><p class="border-b border-white/30 pb-2 text-lg font-semibold">المحتوى</p><ul class="flex flex-col gap-2 text-sm"><li><a href="#" data-out-of-scope class="hover:underline">الدروس</a></li><li><a href="#" data-out-of-scope class="hover:underline">المحاضرات</a></li><li><a href="#" data-out-of-scope class="hover:underline">الدورات</a></li><li><a href="#" data-out-of-scope class="hover:underline">السلاسل العلمية</a></li><li><a href="#" data-out-of-scope class="hover:underline">الخطب</a></li></ul></div><div class="flex min-w-[180px] flex-col gap-2"><p class="border-b border-white/30 pb-2 text-lg font-semibold">المزيد</p><ul class="flex flex-col gap-2 text-sm"><li><a href="#" data-out-of-scope class="hover:underline">التلاوات</a></li><li><a href="#" data-out-of-scope class="hover:underline">المكتبة</a></li><li><a href="#" data-out-of-scope class="hover:underline">الحج والعمرة</a></li><li><a href="#" data-out-of-scope class="hover:underline">الأذان</a></li><li><a href="#" data-out-of-scope class="hover:underline">المختارات</a></li></ul></div><div class="flex min-w-[180px] flex-col gap-2"><p class="border-b border-white/30 pb-2 text-lg font-semibold">شركاء النجاح</p><ul class="flex flex-col gap-2 text-sm"><li><a href="#" data-out-of-scope class="hover:underline">تبيان</a></li></ul></div></nav>
+    <p class="mt-10 border-t border-white/30 pt-6 text-sm font-semibold">جميع الحقوق محفوظة لرئاسة الشؤون الدينية بالمسجد الحرام والمسجد النبوي ١٤٤٨ هـ ©</p>
+  </div>
+</footer>
 
-<script type="application/json" id="footer-data">{"groupLinks": [{"title": "المحتوى", "links": [{"name": "الدروس", "target": "#"}, {"name": "المحاضرات", "target": "#"}, {"name": "الدورات", "target": "#"}, {"name": "السلاسل العلمية", "target": "#"}, {"name": "الخطب", "target": "#"}]}, {"title": "المزيد", "links": [{"name": "التلاوات", "target": "#"}, {"name": "المكتبة", "target": "#"}, {"name": "الحج والعمرة", "target": "#"}, {"name": "الأذان", "target": "#"}, {"name": "المختارات", "target": "#"}]}, {"title": "شركاء النجاح", "links": [{"name": "تبيان", "target": "#"}]}]}</script>
+<div id="toast-region" aria-live="polite" class="pointer-events-none fixed inset-x-4 bottom-24 z-50 flex justify-end sm:inset-x-8"></div>
+<template id="toast-template">
+  <div data-pc="dga-notification-toast" role="status" class="pointer-events-auto flex w-full max-w-[484px] items-start gap-3 rounded-md bg-white px-6 py-4 shadow-3xl">
+    <span data-pc="dga-featured-icon" class="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-info-50 text-info-700"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-5 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/information-circle-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/information-circle-stroke.svg) center/contain no-repeat"></span></span>
+    <div class="flex-1"><p class="text-md font-semibold text-neutral-800">خارج نطاق النموذج التجريبي</p>
+      <p class="text-sm text-neutral-700">هذا النموذج يشمل الصفحة الرئيسية فقط.</p>
+      <p class="text-start text-xs text-neutral-500" dir="ltr">Out of prototype scope: homepage only.</p></div>
+    <button type="button" data-close class="inline-flex size-8 shrink-0 items-center justify-center rounded-sm text-black hover:bg-neutral-100" aria-label="إغلاق"><span data-pc="dga-icon" aria-hidden="true" class="inline-block size-5 shrink-0 bg-current " style="mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/multiplication-sign-stroke.svg) center/contain no-repeat;-webkit-mask:url(https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg/multiplication-sign-stroke.svg) center/contain no-repeat"></span></button>
+  </div>
+</template>
 </body>
 </html>

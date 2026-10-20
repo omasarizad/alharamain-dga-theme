@@ -1,6 +1,9 @@
 index.original.html
 preview-*.png
 .DS_Store
+node_modules/
+.cache/
+# generated in CI
 changes.html
 components.html
-.cache/
+css/app.css

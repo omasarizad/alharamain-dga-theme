@@ -1,19 +1,23 @@
 /*
- * Homepage behaviour:
+ * Homepage behaviour (vanilla JS, no framework):
  * 1. Place tabs (الكل / المسجد الحرام / المسجد النبوي) filter their card grid.
- * 2. Footer link groups are passed to <dga-footer> as a JS property.
+ * 2. Mobile nav drawer (<dialog id="nav-drawer">).
  * 3. Prototype scope guard: anything marked data-out-of-scope (links, buttons,
- *    the search form) shows a Platforms Code toast instead of navigating.
+ *    the search form) shows the toast instead of navigating.
  */
 (function () {
   "use strict";
 
-  /* ---- 1. Place filter ---------------------------------------------- */
-  function applyFilter(key, value) {
-    var grid = document.getElementById("grid-" + key);
+  /* ---- 1. Place filter tabs ------------------------------------------ */
+  function selectTab(tab) {
+    var list = tab.closest("[role=tablist]");
+    list.querySelectorAll("[role=tab]").forEach(function (t) {
+      t.setAttribute("aria-selected", String(t === tab));
+    });
+    var grid = document.getElementById("grid-" + list.dataset.filter);
     if (!grid) return;
-    var shown = 0;
-    grid.querySelectorAll(".content-card").forEach(function (card) {
+    var value = tab.dataset.value, shown = 0;
+    grid.querySelectorAll("[data-place]").forEach(function (card) {
       var match = value === "all" || card.dataset.place === value;
       card.hidden = !match;
       if (match) shown++;
@@ -21,7 +25,7 @@
     var empty = grid.querySelector(".empty-state");
     if (!shown && !empty) {
       empty = document.createElement("p");
-      empty.className = "empty-state text-md-regular";
+      empty.className = "empty-state col-span-full rounded-md border border-dashed border-neutral-300 p-10 text-center text-md text-neutral-500";
       empty.textContent = "لا يوجد محتوى لهذا المكان في النموذج التجريبي.";
       grid.appendChild(empty);
     }
@@ -29,85 +33,61 @@
   }
 
   document.addEventListener("click", function (e) {
-    var tab = e.target.closest && e.target.closest(".place-tabs dga-tab");
-    if (!tab) return;
-    var tabs = tab.closest(".place-tabs");
-    applyFilter(tabs.dataset.filter, tab.getAttribute("value"));
+    var tab = e.target.closest("[role=tab]");
+    if (tab && !tab.hasAttribute("data-out-of-scope")) selectTab(tab);
   });
-  // Keyboard / programmatic changes, if the component emits a change event
-  ["dgaChange", "dgaTabChange", "change"].forEach(function (name) {
-    document.addEventListener(name, function (e) {
-      var tabs = e.target.closest && e.target.closest(".place-tabs");
-      if (!tabs) return;
-      var v = (e.detail && (e.detail.value || e.detail)) || tabs.value;
-      if (typeof v === "string") applyFilter(tabs.dataset.filter, v);
+
+  // Arrow-key navigation between tabs (WAI-ARIA tabs pattern, RTL-aware)
+  document.addEventListener("keydown", function (e) {
+    var tab = e.target.closest && e.target.closest("[role=tab]");
+    if (!tab || (e.key !== "ArrowLeft" && e.key !== "ArrowRight")) return;
+    var tabs = Array.prototype.slice.call(tab.parentElement.querySelectorAll("[role=tab]"));
+    var step = (e.key === "ArrowLeft") === (document.dir === "rtl") ? 1 : -1;
+    var next = tabs[(tabs.indexOf(tab) + step + tabs.length) % tabs.length];
+    next.focus();
+    e.preventDefault();
+  });
+
+  /* ---- 2. Mobile nav drawer ------------------------------------------ */
+  var drawer = document.getElementById("nav-drawer");
+  var menuButton = document.getElementById("menu-button");
+  if (drawer && menuButton) {
+    menuButton.addEventListener("click", function () {
+      drawer.showModal();
+      menuButton.setAttribute("aria-expanded", "true");
     });
-  });
+    drawer.addEventListener("close", function () {
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.focus();
+    });
+    drawer.addEventListener("click", function (e) {
+      if (e.target === drawer || e.target.closest("[data-close]")) drawer.close(); // backdrop or close button
+    });
+  }
 
-  /* ---- Mobile nav drawer --------------------------------------------- */
-  document.addEventListener("click", function (e) {
-    var btn = e.target.closest && e.target.closest(".menu-action");
-    if (!btn) return;
-    var drawer = document.getElementById("nav-drawer");
-    drawer.open = true;
-    btn.setAttribute("aria-expanded", "true");
-  });
-  document.addEventListener("closeClick", function (e) {
-    if (e.target.id !== "nav-drawer") return;
-    e.target.open = false;
-    var btn = document.querySelector(".menu-action");
-    if (btn) { btn.setAttribute("aria-expanded", "false"); btn.focus(); }
-  });
-
-  /* ---- 2. Footer data ----------------------------------------------- */
-  customElements.whenDefined("dga-footer").then(function () {
-    var footer = document.getElementById("site-footer");
-    var data = JSON.parse(document.getElementById("footer-data").textContent);
-    footer.NavLinks = true;          // group links only render when this is set
-    footer.groupLinks = data.groupLinks;
-  });
-
-  /* ---- 3. Prototype scope guard ------------------------------------- */
-  var toast;
+  /* ---- 3. Prototype scope guard -------------------------------------- */
+  var region = document.getElementById("toast-region");
+  var template = document.getElementById("toast-template");
+  var timer;
   function showScopeToast() {
-    if (toast) toast.remove();
-    toast = document.createElement("dga-notification-toast");
-    toast.id = "scope-toast";
-    toast.setAttribute("type", "info");
-    toast.setAttribute("lead-text", "خارج نطاق النموذج التجريبي");
-    toast.setAttribute("description", "هذا النموذج يشمل الصفحة الرئيسية فقط.");
-    toast.setAttribute("has-helper-text", "");
-    toast.setAttribute("helper-text", "Out of prototype scope: homepage only.");
-    toast.setAttribute("v-postion", "bottom");
-    toast.setAttribute("h-postion", "left");
-    toast.setAttribute("duration", "3500");
-    toast.setAttribute("close-button", "");
-    toast.setAttribute("close-label", "إغلاق");
-    document.body.appendChild(toast);
-    // Fallback auto-dismiss in case duration is not honoured
-    setTimeout(function () { if (toast && toast.isConnected) toast.remove(); }, 4000);
+    region.innerHTML = "";
+    var toast = template.content.firstElementChild.cloneNode(true);
+    toast.querySelector("[data-close]").addEventListener("click", function () { toast.remove(); });
+    region.appendChild(toast);
+    clearTimeout(timer);
+    timer = setTimeout(function () { toast.remove(); }, 3500);
   }
 
   document.addEventListener("click", function (e) {
-    var el = e.target.closest && e.target.closest("[data-out-of-scope], [data-out-of-scope-tabs] dga-tab:not([value='video'])");
+    var el = e.target.closest("[data-out-of-scope]");
     if (!el) return;
     e.preventDefault();
-    e.stopPropagation();
+    if (drawer && drawer.open) drawer.close();
     showScopeToast();
   }, true);
 
   document.addEventListener("submit", function (e) {
     e.preventDefault();
     showScopeToast();
-  }, true);
-
-  // Header search submits (Enter) via its own component event
-  document.addEventListener("keydown", function (e) {
-    if (e.key !== "Enter") return;
-    var path = e.composedPath ? e.composedPath() : [];
-    if (path.some(function (n) { return n.tagName === "DGA-HEADER-SEARCH-ACTION" || n.tagName === "DGA-SEARCH-BOX"; })) {
-      e.preventDefault();
-      showScopeToast();
-    }
   }, true);
 })();

@@ -1,0 +1,13 @@
+{
+  "name": "alharamain-platforms-code",
+  "private": true,
+  "description": "Al-Haramain homepage prototype in Tailwind v4 with Platforms Code tokens",
+  "scripts": {
+    "build:css": "tailwindcss -i tailwind/app.css -o css/app.css --minify",
+    "build": "python3 scripts/build-theme.py && python3 scripts/build-home.py && npm run build:css"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}

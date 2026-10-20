@@ -1,61 +1,43 @@
-# Al-Haramain homepage: rebuilt with Platforms Code
+# Al-Haramain homepage: Platforms Code in Tailwind
 
-The Al-Haramain homepage (https://alharamain-app-beta.it4islam.com/ar) rebuilt
-from scratch with the Saudi DGA **Platforms Code** design system: its web
-components, tokens, typography and layout grid. Only the content (text, images,
-sections) comes from the original site. Unofficial prototype, homepage only.
+A prototype of the Al-Haramain homepage (https://alharamain-app-beta.it4islam.com/ar)
+restyled to the Saudi DGA **Platforms Code** design system, written as plain
+HTML with **Tailwind v4 utilities** on the official Platforms Code tokens. No
+web components and no React wrappers: developers copy the class lists into the
+real Next.js site. Unofficial prototype, homepage only.
 
 ## How it works
 
 ```
+@platformscode/core core.css ──build-theme.py──▶ tailwind/platforms-code.css (@theme tokens)
 snapshot/original.html ──extract-content.py──▶ data/content.json ──build-home.py──▶ index.html
+tailwind/app.css + index.html ──tailwindcss──▶ css/app.css
 ```
 
-- `snapshot/original.html`: untouched download of the live homepage. The content source.
-- `scripts/extract-content.py`: pulls sections, cards (title, scholar, date, mosque, media, tags, image), stats, nav and footer text into `data/content.json`.
-- `scripts/build-home.py`: generates `index.html` from the JSON using Platforms Code components. **Edit markup here, not in `index.html`.**
-- `css/home.css`: page layout only (container, grids, hero, sections), written with official tokens (`--colors-*`, `--spacing-*`, `--radius-*`, `--text-*`, `--background-*`).
-- `js/home.js`: place filter tabs, mobile nav drawer, footer data, out-of-scope toast.
-- `js/proto-bar.js`: the prototype bottom bar (Homepage / Components / Changes / Repo) on every page. Self-contained, so it also works on pages without Platforms Code.
-- `scripts/build-components.py`: builds `components.html`, which lists every `dga-*` component in `index.html`: usage count, the attributes we set checked against the official prop docs from `@platformscode/core`, a live preview, and source links. CI runs it; the output is gitignored. **If it flags a component as missing from the package, or an attribute as undocumented, fix the markup.**
-- `NOTES.md`: project notes and caveats. Shown at the top of `changes.html`, so keep it current.
-- `scripts/build-changes.py`: builds `changes.html` from git history (CI runs it; the output is gitignored).
-- `.github/workflows/pages.yml`: deploys to GitHub Pages on every push to `main`.
+- `tailwind/platforms-code.css`: **generated** Tailwind v4 `@theme` with the official colors, radius, shadows and type scale. Don't hand-edit it. Regenerate with `python3 scripts/build-theme.py`.
+- `scripts/build-home.py`: generates `index.html`. Each helper (`button`, `tag`, `tabs`, `card`, `search_box`, `inline_alert`, `featured_icon`, `header`, `drawer`, `footer`) reproduces one official component, and its element carries `data-pc="<official tag>"`. **Edit markup here, not in `index.html`.**
+- `js/home.js`: vanilla JS for the filter tabs (`aria-selected`), the mobile drawer (`<dialog>`) and the out-of-scope toast.
+- `js/proto-bar.js`: the prototype bottom bar on every page.
+- `DEV-GUIDE.md`: the guide for developers updating the real site. It's rendered into `changes.html`, and `<!-- snippet:NAME -->` markers are filled from `build-home.py`.
+- `scripts/build-changes.py`: builds `changes.html` (the guide plus the commit log since the Tailwind rebuild).
+- `scripts/shoot-components.js` writes `assets/ours/*.png` (our version of each component). `assets/official/*.png` are reference shots of the official web components. `scripts/build-components.py` builds `components.html` from them.
+- `.github/workflows/pages.yml`: builds everything and deploys to GitHub Pages on every push to `main`.
 
-Rebuild locally: `python3 scripts/build-home.py && python3 -m http.server`.
-Don't open `index.html` over `file://`: the CDN blocks lazy chunks for origin `null`.
-
-## Platforms Code packages (loaded from jsDelivr, pinned)
-
-- `@platformscode/core@0.0.53`: web components plus `core.css` (tokens and typography classes). MIT. Maintained by AZM (`azmx.sa`).
-- `@platformscode/icons@0.0.11`: icon SVGs. **UNLICENSED**, so it's loaded at runtime from npm and never committed here.
-
-## Component map
-
-| Section | Components |
-|---|---|
-| Header | `dga-header-v2`, `dga-header-menu-v2`, `dga-header-menu-item`, `dga-header-actions`, `dga-header-search-action`, `dga-header-action` |
-| Mobile nav | `dga-drawer-v2`, `dga-drawer-header`, `dga-drawer-body`, `dga-drawer-nav`, `dga-drawer-nav-item` |
-| Hero | `dga-tag`, `dga-search-box`, `dga-button-v2` |
-| Live strip | `dga-inline-alert` |
-| Content sections | `dga-tabs-v2`, `dga-tab`, `dga-card-v2`, `dga-card-content`, `dga-card-title`, `dga-tag`, `dga-button-v2`, `dga-icon` |
-| Tilawat stats | `dga-featured-icon` + token typography |
-| Footer | `dga-footer` (DarkGreen) |
-| Out-of-scope | `dga-notification-toast` |
+Local build: `npm install && npm run build && python3 scripts/build-changes.py && python3 scripts/build-components.py && python3 -m http.server`.
+After a visual change, re-shoot: `node scripts/shoot-components.js` (needs `playwright`) and commit `assets/ours/`.
 
 ## Rules for developers and agents
 
-1. **Use a Platforms Code component before writing your own.** Custom CSS is for page layout only, and it must use official tokens. No hex colors.
-2. **Don't style component internals.** They use shadow DOM. If you need control, put light-DOM content in a slot (cards use a plain `<img class="card-img">` in `dga-card-content` for that reason).
-3. **Icons:** `window.GDSIcons.map` (inline in `<head>`, before `core.esm.js`) resolves every icon name to `@platformscode/icons`. Keep that script first.
-4. **Header collapse is ours to build.** `dga-header-menu-v2` never hides itself. Below 1100px we hide it and show the drawer button.
-5. **Footer link groups** only render when `footer.NavLinks = true` (set in `js/home.js`).
-6. **Scope:** only the homepage is real. Every other link or button gets `data-out-of-scope` and shows the toast.
-7. One logical change per commit. Write the subject in plain English and explain *why* in the body. `changes.html` is generated from these messages.
-8. Check visually at 1440px and 390px before pushing.
+1. **Match the official component.** Before changing a helper, check the official component's computed styles (size, padding, type, colors, radius) and compare on `components.html`.
+2. **Theme colors only.** No arbitrary hex in classes. The default Tailwind palette is disabled (`--color-*: initial`).
+3. **Logical properties** (`ps/pe`, `start/end`) so RTL works. Keep the 2px black focus outline.
+4. **Gotchas:** the footer dark green is `success-900` (`--colors-green-900`). `text-md` (16/24) is added by `build-theme.py` because `core.css` has no class for it. The header menu collapses below 1100px into the drawer.
+5. **Scope:** only the homepage is real. Every other link or button gets `data-out-of-scope` and shows the toast.
+6. One logical change per commit, with a plain-English subject and the *why* in the body. The commit log on `changes.html` starts at the commit whose subject begins "Rebuild the homepage in Tailwind".
+7. Check visually at 1440px and 390px before pushing.
 
 ## Live
 
 - Page: https://omasarizad.github.io/alharamain-dga-theme/
 - Components: https://omasarizad.github.io/alharamain-dga-theme/components.html
-- Changes: https://omasarizad.github.io/alharamain-dga-theme/changes.html
+- Developer changes: https://omasarizad.github.io/alharamain-dga-theme/changes.html
