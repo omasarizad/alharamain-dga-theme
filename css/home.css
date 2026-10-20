@@ -1,0 +1,201 @@
+/*
+ * Homepage layout on Platforms Code tokens.
+ * Components come from @platformscode/core (core.css + web components).
+ * This file only does page layout: container, grids, hero, sections.
+ * Use the official tokens (--colors-*, --spacing-*, --radius-*, --text-*,
+ * --background-*); never hard-code a color.
+ */
+
+:root {
+  --page-max: var(--spacing-320);          /* 1280px, Platforms Code large breakpoint */
+  --gutter: var(--spacing-4);               /* 16px mobile */
+}
+@media (min-width: 600px)  { :root { --gutter: var(--spacing-6); } }
+@media (min-width: 1280px) { :root { --gutter: var(--spacing-8); } }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--background-body);
+  color: var(--text-primary-paragraph);
+  font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Accessibility */
+.skip-link {
+  position: absolute;
+  inset-inline-start: var(--spacing-4);
+  top: -100px;
+  z-index: 10001;
+  padding: var(--spacing-2) var(--spacing-4);
+  background: var(--background-primary);
+  color: var(--text-oncolor-primary);
+  border-radius: var(--radius-sm);
+}
+.skip-link:focus { top: var(--spacing-2); }
+:focus-visible { outline: 2px solid var(--colors-base-black); outline-offset: 2px; }
+
+/* Prototype banner */
+.proto-banner {
+  background: var(--colors-neutral-800);
+  color: var(--text-oncolor-primary);
+  text-align: center;
+  padding: var(--spacing-2) var(--gutter);
+}
+
+/* Header brand */
+.brand { display: inline-flex; align-items: center; }
+.brand img { height: 48px; width: auto; }
+
+/* Hero */
+.hero {
+  position: relative;
+  isolation: isolate;
+  color: var(--text-oncolor-primary);
+  background:
+    linear-gradient(to left, color-mix(in srgb, var(--colors-primary-sa-flag-900) 92%, transparent),
+                             color-mix(in srgb, var(--colors-primary-sa-flag-800) 75%, transparent)),
+    var(--hero-image) center / cover no-repeat,
+    var(--colors-primary-sa-flag-900);
+}
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  padding-block: var(--spacing-16) var(--spacing-20);
+}
+.hero h1 { margin: 0; color: var(--text-oncolor-primary); }
+.hero-sub { margin: 0; max-width: 46ch; color: var(--text-oncolor-secondary); }
+.hero-search {
+  display: flex;
+  gap: var(--spacing-2);
+  width: 100%;
+  max-width: 720px;
+  margin-top: var(--spacing-4);
+}
+.hero-search dga-search-box { flex: 1; }
+@media (max-width: 599px) {
+  .hero-inner { padding-block: var(--spacing-10) var(--spacing-12); }
+  .hero h1 { font-size: 36px; line-height: 44px; }
+  .hero-search { flex-direction: column; }
+}
+
+/* Live alert overlaps hero edge */
+.live-alert { display: block; margin-top: calc(-1 * var(--spacing-8)); position: relative; }
+
+/* Sections */
+.section { padding-block: var(--spacing-16); }
+.section--tinted { background: var(--background-white); border-block: 1px solid var(--border-neutral-secondary); }
+.section--brand { background: var(--background-primary-25); border-block: 1px solid var(--border-primary-light); }
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-6);
+}
+.section-head h2 { margin: 0; color: var(--text-display); }
+.section-sub { margin: var(--spacing-1) 0 0; color: var(--text-secondary-paragraph); }
+@media (max-width: 599px) {
+  .section { padding-block: var(--spacing-10); }
+  .section-head { flex-direction: column; align-items: flex-start; }
+}
+
+.place-tabs, [data-out-of-scope-tabs] { display: block; margin-bottom: var(--spacing-6); }
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 272px), 1fr));
+  gap: var(--spacing-6);
+}
+.content-card { display: block; height: 100%; }
+.content-card[hidden] { display: none; }
+.content-card dga-card-image img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; }
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-1) var(--spacing-3);
+  color: var(--text-secondary-paragraph);
+  margin-top: var(--spacing-3);
+}
+.meta { display: inline-flex; align-items: center; gap: var(--spacing-1); }
+
+dga-card-title a {
+  color: var(--text-display);
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+dga-card-title a:hover { color: var(--text-primary); text-decoration: underline; text-underline-offset: 3px; }
+.card-scholar { margin: var(--spacing-1) 0 0; color: var(--text-primary); }
+.card-tags { display: flex; flex-wrap: wrap; gap: var(--spacing-1); margin-top: var(--spacing-3); }
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: var(--spacing-10);
+  text-align: center;
+  color: var(--text-secondary-paragraph);
+  border: 1px dashed var(--border-neutral-primary);
+  border-radius: var(--radius-md);
+}
+
+/* Tilawat stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-8);
+}
+.stat {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-5);
+  background: var(--background-card);
+  border: 1px solid var(--border-neutral-secondary);
+  border-radius: var(--radius-lg);
+}
+.stat p { margin: 0; }
+.stat-value { color: var(--text-display); font-variant-numeric: tabular-nums; }
+.stat-label { color: var(--text-secondary-paragraph); }
+
+/* Out-of-scope toast host */
+#scope-toast { position: fixed; z-index: 10000; }
+
+/* Card image (light DOM, inside dga-card-content's slot) */
+.card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  background: var(--background-neutral-100);
+}
+.card-grid > * { min-width: 0; }
+
+/* Header: desktop menu vs. drawer. Platforms Code leaves collapsing to the shell. */
+.menu-action { display: none; }
+@media (max-width: 1100px) {
+  .desktop-nav { display: none; }
+  .menu-action { display: inline-flex; }
+}
+@media (max-width: 599px) {
+  .lang-action { display: none; }
+  .brand img { height: 40px; }
+}
