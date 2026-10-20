@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate components.html: a visual side-by-side of each Platforms Code
-component we reproduced in Tailwind (assets/ours/) next to the official
-component (assets/official/), with a link to the official component source.
+component we reproduced in Tailwind (assets/ours/), with a link to the
+official Figma components library published by SDGA (figma.com/@sdga).
 
 Run from the repo root: python3 scripts/build-components.py
 Screenshots come from scripts/shoot-components.js.
@@ -9,32 +9,31 @@ Screenshots come from scripts/shoot-components.js.
 import html
 from pathlib import Path
 
-VERSION = "0.0.53"
-BROWSE = f"https://www.jsdelivr.com/package/npm/@platformscode/core?version={VERSION}&path=dist%2Fcollection%2Fcomponents%2F"
+# "Components Library - Platforms Code", published by SDGA on Figma Community
+FIGMA = "https://www.figma.com/community/file/1392264328585493958/components-library-platforms-code"
 
-# (official tag, Arabic name, package folder)
+# (official tag, Arabic name)
 TILES = [
-    ("dga-header-v2", "الترويسة", "dga-header-v2"),
-    ("dga-header-menu-item", "عنصر القائمة", "dga-header-v2"),
-    ("dga-header-action", "إجراء الترويسة", "dga-header-v2"),
-    ("dga-header-search-action", "بحث الترويسة", "dga-header-v2"),
-    ("dga-drawer-v2", "القائمة الجانبية", "dga-drawer-v2"),
-    ("dga-drawer-nav-item", "عنصر القائمة الجانبية", "dga-drawer-v2"),
-    ("dga-button-v2", "الزر", "dga-button-v2"),
-    ("dga-tag", "الوسم", "dga-tag"),
-    ("dga-tabs-v2", "التبويبات", "dga-tabs-v2"),
-    ("dga-search-box", "مربع البحث", "dga-search-box"),
-    ("dga-inline-alert", "التنبيه", "dga-inline-alert"),
-    ("dga-card-v2", "البطاقة", "dga-card-v2"),
-    ("dga-featured-icon", "الأيقونة المميزة", "dga-featured-icon"),
-    ("dga-icon", "الأيقونة", "dga-icon"),
-    ("dga-notification-toast", "الإشعار", "dga-notification-toast"),
-    ("dga-footer", "التذييل", "dga-footer"),
+    ("dga-header-v2", "الترويسة"),
+    ("dga-header-menu-item", "عنصر القائمة"),
+    ("dga-header-action", "إجراء الترويسة"),
+    ("dga-header-search-action", "بحث الترويسة"),
+    ("dga-drawer-v2", "القائمة الجانبية"),
+    ("dga-drawer-nav-item", "عنصر القائمة الجانبية"),
+    ("dga-button-v2", "الزر"),
+    ("dga-tag", "الوسم"),
+    ("dga-tabs-v2", "التبويبات"),
+    ("dga-search-box", "مربع البحث"),
+    ("dga-inline-alert", "التنبيه"),
+    ("dga-card-v2", "البطاقة"),
+    ("dga-featured-icon", "الأيقونة المميزة"),
+    ("dga-icon", "الأيقونة"),
+    ("dga-footer", "التذييل"),
 ]
 
 
 # Wide components get a full-row tile with ours stacked above the official one
-WIDE = {"dga-header-v2", "dga-tabs-v2", "dga-search-box", "dga-inline-alert", "dga-footer", "dga-notification-toast"}
+WIDE = {"dga-header-v2", "dga-tabs-v2", "dga-search-box", "dga-inline-alert", "dga-footer"}
 
 
 def e(s):
@@ -52,8 +51,8 @@ def main():
   <article id="{tag}" class="{'wide' if tag in WIDE else ''}">
     <h2>{e(ar)}</h2>
     {figure(f"assets/ours/{tag}.png", ar)}
-    <a class="link" href="{BROWSE}{folder}" target="_blank" rel="noopener">عرض المكوّن الرسمي ←</a>
-  </article>""" for tag, ar, folder in TILES)
+    <a class="link" href="{FIGMA}" target="_blank" rel="noopener">عرض المكوّن في Figma ←</a>
+  </article>""" for tag, ar in TILES)
 
     Path("components.html").write_text(f"""<!doctype html>
 <html lang="ar" dir="rtl">
@@ -89,7 +88,7 @@ def main():
 </body>
 </html>
 """, encoding="utf-8")
-    missing = [t for t, _, _ in TILES if not (Path(f"assets/ours/{t}.png").exists() and Path(f"assets/official/{t}.png").exists())]
+    missing = [t for t, _ in TILES if not (Path(f"assets/ours/{t}.png").exists() and Path(f"assets/official/{t}.png").exists())]
     print(f"components.html: {len(TILES)} components", f"missing images: {missing}" if missing else "")
 
 

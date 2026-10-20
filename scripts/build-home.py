@@ -18,7 +18,6 @@ from pathlib import Path
 PC_ICONS = "https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg"
 ORIGIN = "https://alharamain-app-beta.it4islam.com"
 LOGO = ORIGIN + "/_next/static/media/HeaderLogo.04gd8s9fp0yqt.svg"
-LOGO_WHITE = ORIGIN + "/_next/static/media/Logo.2kxvzq5udaci_.svg"
 HERO_IMAGE = ORIGIN + "/images/lessons-bg.webp"
 FALLBACK_IMAGE = {"haram": ORIGIN + "/images/maka.webp", "nabawi": ORIGIN + "/images/madina.webp"}
 
@@ -218,32 +217,61 @@ def drawer(d):
 
 
 def footer(d):
-    """dga-footer (DarkGreen = --colors-green-900 #074c30 -> bg-success-900)."""
+    """Footer, as in the SDGA Figma library (UI Shell - Footer, RTL, Dark green).
+
+    Link columns, a contact column (social media + accessibility tools with
+    32px outline icon buttons), then a legal row: underlined links, copyright,
+    privacy and terms, and the logo on white. Below 640px the contact column
+    becomes one row, and the legal row stacks and centers.
+    Dark green = --colors-green-900 -> bg-success-900.
+    """
     f = d["footer"]
     groups = [
         ("المحتوى", d["nav"][1:6]),
         ("المزيد", d["nav"][6:]),
         (f.get("partners_title") or "شركاء النجاح", ["تبيان"]),
     ]
+    social = [("new-twitter", "إكس"), ("youtube", "يوتيوب"), ("instagram", "إنستغرام"), ("snapchat", "سناب شات")]
+    a11y = [("eye", "تباين الألوان"), ("search-add", "تكبير الخط"), ("search-minus", "تصغير الخط")]
+    legal_links = ["عن المنصة", "اتصل بنا", "الأسئلة الشائعة", "خريطة الموقع"]
 
-    def links(names):
-        return "".join(f'<li><a href="#" data-out-of-scope class="hover:underline">{e(n)}</a></li>' for n in names)
+    def label(text):
+        return f'<p class="border-b border-white/30 pb-2 text-md font-semibold sm:font-medium">{e(text)}</p>'
+
+    def links(names, cls=""):
+        return "".join(f'<li><a href="#" data-out-of-scope class="hover:underline {cls}">{e(n)}</a></li>' for n in names)
+
+    def icon_buttons(items):
+        return "".join(
+            f'<li><a href="#" data-out-of-scope aria-label="{e(n)}" class="inline-flex size-8 items-center justify-center rounded-sm border border-white/30 hover:bg-white/10">{icon(i, 5)}</a></li>'
+            for i, n in items
+        )
 
     cols = "".join(
-        f'<div class="flex min-w-[180px] flex-col gap-2"><p class="border-b border-white/30 pb-2 text-lg font-semibold">{e(t)}</p>'
-        f'<ul class="flex flex-col gap-2 text-sm">{links(names)}</ul></div>'
+        f'<div class="flex min-w-[180px] flex-1 flex-col gap-2">{label(t)}<ul class="flex flex-col gap-2 text-sm">{links(names)}</ul></div>'
         for t, names in groups
+    )
+    contact = "".join(
+        f'<div class="flex flex-1 flex-col gap-2">{label(t)}<ul class="flex flex-wrap gap-2">{icon_buttons(items)}</ul></div>'
+        for t, items in (("تواصل معنا", social), ("أدوات الإتاحة والوصول", a11y))
     )
     return f"""
 <footer data-pc="dga-footer" class="bg-success-900 px-4 text-white sm:px-8">
-  <div class="mx-auto max-w-[1280px] py-6">
-    <div class="my-10 flex flex-col gap-2 sm:my-16">
-      <img src="{LOGO_WHITE}" alt="" width="160" height="80" class="mb-4 h-16 w-auto self-start">
-      <p class="text-display-md font-bold sm:text-display-2xl">منصة الحرمين</p>
-      <p class="max-w-3xl text-lg sm:text-display-xs">{e(f['about'])}</p>
+  <div class="mx-auto flex max-w-[1280px] flex-col gap-10 pt-10 pb-6 sm:gap-12">
+    <nav aria-label="روابط التذييل" class="flex flex-wrap gap-6 py-4 sm:pb-10">
+      {cols}
+      <div class="flex w-full flex-row-reverse gap-8 sm:w-auto sm:min-w-[180px] sm:flex-1 sm:flex-col">{contact}</div>
+    </nav>
+    <div class="flex flex-col items-center gap-10 py-4 sm:flex-row sm:gap-6">
+      <div class="flex w-full flex-col items-center gap-8 sm:flex-1 sm:items-start sm:gap-6">
+        <ul class="flex flex-wrap justify-center gap-4 text-sm">{links(legal_links, "underline")}</ul>
+        <div class="flex flex-col items-center gap-2 text-center sm:items-start sm:text-start">
+          <p class="text-sm font-semibold">{e(f['copyright'])}</p>
+          <ul class="flex flex-wrap gap-4 text-sm">{links(["سياسة الخصوصية", "الشروط والأحكام"])}</ul>
+        </div>
+      </div>
+      <div class="flex shrink-0 items-center bg-white px-1 py-[5px]"><img src="{LOGO}" alt="منصة الحرمين" class="h-8 w-auto"></div>
     </div>
-    <nav aria-label="روابط التذييل" class="mb-12 flex flex-wrap justify-between gap-6 py-4 sm:mb-20">{cols}</nav>
-    <p class="mt-10 border-t border-white/30 pt-6 text-sm font-semibold">{e(f['copyright'])}</p>
   </div>
 </footer>"""
 

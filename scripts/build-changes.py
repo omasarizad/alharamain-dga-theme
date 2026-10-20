@@ -44,6 +44,7 @@ def snippets():
         "tag": h.tag("الأذان"),
         "search": h.search_box("ابحث عن درس، خطبة، تلاوة، أو شيخ"),
         "featured-icon": h.featured_icon("quran-01"),
+        "footer": h.footer(d),
     }
 
 

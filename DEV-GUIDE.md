@@ -16,7 +16,7 @@
 | Cards | daisyUI card, heavy shadow, asymmetric image corners, gold scholar link, pill tags | Bordered card, 16px corners, shadow on hover, 16:10 image, green scholar, square tags |
 | Tilawat stats | Mint boxes | White tiles with green circular icons |
 | المختارات | Pill toggle | Underline tabs |
-| Footer | Gold footer + separate copyright strip | Single dark-green footer: logo, title, about, link columns, copyright |
+| Footer | Gold footer + separate copyright strip | Single dark-green footer as in the SDGA Figma library: link columns, contact and accessibility icons, legal row |
 | Feedback | — | Toast component for transient messages |
 | Accessibility | — | Visible 2px focus outline, keyboard tabs, skip link, RTL logical properties |
 
@@ -138,17 +138,15 @@ Replaces the mint stat boxes. Each stat is a white `rounded-lg` tile with a 48px
 
 ### Footer (`dga-footer`, DarkGreen)
 
-Replaces the gold footer and its separate copyright strip with **one** `bg-success-900` block:
+Follows **UI Shell - Footer** (RTL, Dark green) in the SDGA Figma components library. It replaces the gold footer and its separate copyright strip with **one** `bg-success-900` block. There is no big title or about text.
 
-- **Logo**
+- **Link columns:** `flex-1 min-w-[180px]`. Each title is `text-md font-medium` over a `white/30` divider, and links are `text-sm` with gap 8px.
 
-- **Title:** `text-display-2xl font-bold`
+- **Contact column (last, on the left):** **تواصل معنا** (social) and **أدوات الإتاحة والوصول** (contrast, zoom in, zoom out). Each icon is a 32px `rounded-sm border-white/30` button with a 20px icon. Below 640px the two groups sit side by side under the columns.
 
-- **About:** `text-display-xs`
+- **Legal row:** underlined `text-sm` links, the copyright in `text-sm font-semibold`, then **سياسة الخصوصية** and **الشروط والأحكام**. The logo sits on a white box at the far end. Below 640px it stacks and centers.
 
-- **Link columns:** each title is `text-lg font-semibold` over a `white/30` divider, and links are `text-sm`
-
-- **Copyright:** `text-sm font-semibold`
+<!-- snippet:footer -->
 
 ### Toast (`dga-notification-toast`)
 
