@@ -5,6 +5,7 @@ Run from the repo root: python3 scripts/build-changes.py
 CI runs it on every push to main before deploying GitHub Pages.
 """
 import html
+import re
 import subprocess
 from pathlib import Path
 
@@ -53,6 +54,21 @@ def render_diff(lines):
     return "\n".join(out)
 
 
+def render_notes():
+    """NOTES.md bullets -> HTML list (supports **bold** and `code`)."""
+    path = Path("NOTES.md")
+    if not path.exists():
+        return ""
+    items = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if line.startswith("- "):
+            t = html.escape(line[2:])
+            t = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
+            t = re.sub(r"`(.+?)`", r"<code>\1</code>", t)
+            items.append(f"<li>{t}</li>")
+    return f'<section class="notes"><h2>Notes</h2><ul>{"".join(items)}</ul></section>' if items else ""
+
+
 def main():
     remote = git("config", "--get", "remote.origin.url").strip() if subprocess.run(
         ["git", "config", "--get", "remote.origin.url"], capture_output=True).returncode == 0 else ""
@@ -80,7 +96,7 @@ def main():
             f'{body}<div class="files">{"".join(files)}</div></article>'
         )
 
-    page = TEMPLATE.replace("{{ITEMS}}", "\n".join(items)).replace("{{COUNT}}", str(len(items)))
+    page = TEMPLATE.replace("{{NOTES}}", render_notes()).replace("{{ITEMS}}", "\n".join(items)).replace("{{COUNT}}", str(len(items)))
     page = page.replace("{{REPO}}", f'<a href="{repo_url}">{repo_url.split("github.com/")[-1]}</a> · ' if repo_url else "")
     Path("changes.html").write_text(page, encoding="utf-8")
     print(f"changes.html: {len(items)} commits")
@@ -134,12 +150,20 @@ pre span { display: block; padding: 0 12px; white-space: pre; }
 pre .add { background: var(--add-bg); color: var(--add); }
 pre .del { background: var(--del-bg); color: var(--del); }
 pre .hunk { color: var(--hunk); }
+.notes { background: var(--surface); border: 1px solid var(--line); border-inline-start: 4px solid var(--primary); border-radius: 8px; padding: 16px 20px; margin-bottom: 32px; }
+.notes h2, .section { font-size: 18px; margin: 0 0 8px; }
+.section { margin-bottom: 16px; }
+.notes ul { margin: 0; padding-inline-start: 20px; }
+.notes li { margin: 6px 0; }
+.notes code { font: 13px "IBM Plex Mono", monospace; }
 </style>
 </head>
 <body>
 <main>
 <h1>Code changes</h1>
 <p class="lead">{{REPO}}{{COUNT}} commits, newest first. Generated from git on every push. <a href="index.html">View the page →</a></p>
+{{NOTES}}
+<h2 class="section">Commits</h2>
 {{ITEMS}}
 </main>
 </body>
