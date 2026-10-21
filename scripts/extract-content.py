@@ -95,6 +95,19 @@ def main():
         stats.append({"value": m.group(1), "label": {"القارئ": "قارئ"}.get(m.group(2), m.group(2))})
     data["sections"]["tilawat"]["stats"] = stats
 
+    # المختارات "نصي" tab: not in the rendered HTML, only in the page's data
+    # payload as "selectedPostsText" (title, excerpt, topic, related lecture)
+    raw = Path("snapshot/original.html").read_text(encoding="utf-8")
+    start = raw.index('"selectedPostsText":') + len('"selectedPostsText":')
+    posts, _ = json.JSONDecoder().raw_decode(raw[start:])
+    data["sections"]["selected"]["text_items"] = [{
+        "title": post["title"],
+        # The site writes ﷺ as private-use U+F065 drawn by its own icon font
+        "excerpt": BeautifulSoup(post["excerpt"] or "", "html.parser").get_text(" ", strip=True).replace("\uf065", "ﷺ"),
+        "topic": (post.get("topics") or [{}])[0].get("title", ""),
+        "related": (post.get("selectionPosts") or [{}])[0].get("title", ""),
+    } for post in posts]
+
     # Navigation
     nav = []
     for a in soup.select("header a, nav a"):
