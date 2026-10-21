@@ -19,7 +19,6 @@ from pathlib import Path
 PC_ICONS = "https://cdn.jsdelivr.net/npm/@platformscode/icons@0.0.11/dist/svg"
 ORIGIN = "https://alharamain-app-beta.it4islam.com"
 LOGO = ORIGIN + "/_next/static/media/HeaderLogo.04gd8s9fp0yqt.svg"
-TIBYAN_LOGO = ORIGIN + "/_next/static/media/ty-logo.1xz5pe5m0wvvz.svg"
 HERO_IMAGE = ORIGIN + "/images/lessons-bg.webp"
 FALLBACK_IMAGE = {"haram": ORIGIN + "/images/maka.webp", "nabawi": ORIGIN + "/images/madina.webp"}
 
@@ -32,7 +31,7 @@ NAV_ICON = {
     "الأذان": "mosque-02", "المختارات": "star",
 }
 LESSON_GROUP = ("الدروس", "المحاضرات", "الدورات", "السلاسل العلمية")
-STAT_ICON = {"إجمالي التلاوات": "quran-01", "أدعية القنوت": "prayer-rug-01", "القارئ": "user", "مصحف مسجل": "mic-01"}
+STAT_ICON = {"إجمالي التلاوات": "quran-01", "أدعية القنوت": "prayer-rug-01", "قارئ": "user", "مصحف مسجل": "mic-01"}
 
 CONTAINER = "mx-auto w-full max-w-[1280px] px-4 sm:px-6 xl:px-8"
 
@@ -362,15 +361,6 @@ def build(d):
     {section_head(S['selected'], 'selected')}
     {tabs([("video", "مرئي", "video-01"), ("text", "نصي", "file-01")], 'selected', 'video', 'نوع المحتوى', out_of_scope=("text",))}
     {grid(S['selected']['items'], 'selected', show_place=False)}
-  </section>
-
-  <section aria-labelledby="h-partners" class="bg-neutral-50 py-10">
-    <div class="{CONTAINER} flex flex-col gap-8">
-      <h2 id="h-partners" class="text-display-sm font-bold text-black">{e(d['footer'].get('partners_title') or 'شركاء النجاح')}</h2>
-      <ul class="flex flex-wrap gap-4">
-        <li><a href="#" data-out-of-scope class="flex h-[120px] w-[136px] items-center justify-center rounded-lg border border-neutral-300 bg-white p-4 hover:border-neutral-400"><img src="{TIBYAN_LOGO}" alt="تبيان" width="104" height="59" class="w-[104px]"></a></li>
-      </ul>
-    </div>
   </section>
 
   <div class="bg-white py-4">

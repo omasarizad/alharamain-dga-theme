@@ -16,7 +16,7 @@
 | Cards | daisyUI card, heavy shadow, asymmetric image corners, gold scholar link, pill tags | Bordered card, 16px corners, shadow on hover, 16:10 image, green scholar, square tags |
 | Tilawat stats | Mint boxes | Open centered stats: 56px green circle icon, `display-lg` number, label (template's "about us" stats) |
 | Section backgrounds | Mixed tints and borders | Alternating white and `neutral-50`, no borders |
-| Partners | Logo in the footer | **شركاء النجاح** section with bordered logo cards, above a **تاريخ آخر تعديل** strip |
+| Last modified | — | White **تاريخ آخر تعديل** strip above the footer (SDGA Home Page Template) |
 | Top strip | Dark prototype banner | `neutral-100` 32px strip in the Digital Stamp style (prototype notice only, no government claim) |
 | المختارات | Pill toggle | Underline tabs |
 | Footer | Gold footer + separate copyright strip | Single dark-green footer as in the SDGA Figma library: link columns, contact and accessibility icons, legal row |
@@ -95,9 +95,9 @@ Replaces the green "البث المباشر للدروس" bar. The "جدول ا�
 
 As in the SDGA Home Page Template: title `text-display-sm font-bold text-black`, description `text-md text-black` 24px below it. "عرض الكل" is a 40px secondary-outline button (`dga-button-v2`, lg) at the far end, aligned to the title. Drop the decorative heading font and the gold subtitle color. Sections alternate `bg-white` and `bg-neutral-50` with no borders.
 
-### Partners and last modified
+### Last modified
 
-From the template: a **شركاء النجاح** section (`text-display-sm` title, `rounded-lg border-neutral-300 bg-white p-4` logo cards), then a white strip with **تاريخ آخر تعديل** in `text-sm` just above the footer. Add the template's carousel arrows only when there are more logos than fit on one row.
+From the template: a white strip with **تاريخ آخر تعديل** in `text-sm` just above the footer.
 
 <!-- snippet:button -->
 
