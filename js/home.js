@@ -1,6 +1,7 @@
 /*
  * Homepage behaviour (vanilla JS, no framework):
- * 1. Place tabs (الكل / المسجد الحرام / المسجد النبوي) filter their card grid.
+ * 1. Place tabs (الكل / المسجد الحرام / المسجد النبوي) filter their card grid;
+ *    content-type tabs (مرئي / نصي) switch between panels.
  * 2. Mobile nav drawer (<dialog id="nav-drawer">).
  * 3. Prototype scope guard: anything marked data-out-of-scope (links, buttons,
  *    the search form) shows the toast instead of navigating.
@@ -14,6 +15,14 @@
     list.querySelectorAll("[role=tab]").forEach(function (t) {
       t.setAttribute("aria-selected", String(t === tab));
     });
+    // Content-type tabs (مرئي / نصي) switch whole panels instead of filtering
+    var panel = document.getElementById("panel-" + list.dataset.filter + "-" + tab.dataset.value);
+    if (panel) {
+      document.querySelectorAll('[data-panel="' + list.dataset.filter + '"]').forEach(function (p) {
+        p.hidden = p !== panel;
+      });
+      return;
+    }
     var grid = document.getElementById("grid-" + list.dataset.filter);
     if (!grid) return;
     var value = tab.dataset.value, shown = 0;

@@ -45,6 +45,7 @@ def snippets():
         "search": h.search_box("ابحث عن درس، خطبة، تلاوة، أو شيخ"),
         "featured-icon": h.featured_icon("quran-01"),
         "footer": h.footer(d),
+        "text-card": h.text_card(d["sections"]["selected"]["text_items"][0]),
     }
 
 

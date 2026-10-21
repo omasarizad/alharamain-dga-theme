@@ -146,6 +146,24 @@ def card(item, show_place=True):
       </article>"""
 
 
+def text_card(item):
+    """المختارات "نصي" card: dga-card-v2 holding a quote styled like the Figma
+    Quote component (neutral-50 panel, big primary-800 quote mark), then the
+    topic tag and a link to the lecture it comes from."""
+    return f"""
+      <article data-pc="dga-card-v2" class="flex h-full min-w-0 flex-col rounded-lg border border-neutral-300 bg-white p-4 transition-shadow hover:shadow-md">
+        <figure class="relative flex flex-1 flex-col gap-3 rounded-md bg-neutral-50 p-5 ps-14">
+          <span aria-hidden="true" class="absolute start-4 top-4 text-display-xl leading-none text-primary-800">&rdquo;</span>
+          <h3 data-pc="dga-card-title" class="text-lg font-bold text-black">
+            <a href="#" data-out-of-scope class="line-clamp-2 hover:text-primary-600 hover:underline hover:underline-offset-3">{e(item['title'])}</a>
+          </h3>
+          <blockquote class="line-clamp-3 text-md text-neutral-700">{e(item['excerpt'])}</blockquote>
+        </figure>
+        {f'<div class="flex flex-wrap gap-1 pt-3">{tag(item["topic"])}</div>' if item.get("topic") else ''}
+        <a href="#" data-out-of-scope class="mt-4 inline-flex items-center gap-2 border-t border-neutral-200 pt-4 text-sm font-medium text-primary-600 underline underline-offset-3 hover:text-primary-700">{icon("link-01", 5)}<span class="line-clamp-1">{e(item['related'])}</span></a>
+      </article>"""
+
+
 # ---- Page sections -----------------------------------------------------------
 
 def section_head(sec, key):
@@ -359,8 +377,11 @@ def build(d):
 
   <section aria-labelledby="h-selected" class="{CONTAINER} py-10 sm:py-16">
     {section_head(S['selected'], 'selected')}
-    {tabs([("video", "مرئي", "video-01"), ("text", "نصي", "file-01")], 'selected', 'video', 'نوع المحتوى', out_of_scope=("text",))}
-    {grid(S['selected']['items'], 'selected', show_place=False)}
+    {tabs([("video", "مرئي", "video-01"), ("text", "نصي", "file-01")], 'selected', 'video', 'نوع المحتوى')}
+    <div id="panel-selected-video" data-panel="selected">{grid(S['selected']['items'], 'selected', show_place=False)}</div>
+    <div id="panel-selected-text" data-panel="selected" hidden>
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,340px),1fr))] gap-6">{"".join(text_card(i) for i in S['selected'].get('text_items', []))}</div>
+    </div>
   </section>
 
   <div class="bg-white py-4">

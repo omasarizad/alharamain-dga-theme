@@ -143,6 +143,12 @@ Replaces the mint stat boxes, following the stats in the SDGA Home Page Template
 
 <!-- snippet:featured-icon -->
 
+### المختارات: text cards (نصي)
+
+The **نصي** tab shows quote cards instead of video cards. Each is the usual bordered card holding a quote styled like the Figma **Quote** component: a `bg-neutral-50 rounded-md` panel with a large `text-primary-800` ” mark at the start, a `text-lg font-bold` title and a `text-md text-neutral-700` excerpt (3 lines). Under it are the topic tag and a divider, then an underlined `text-primary-600` link with a link icon to the lecture the quote comes from. Three across on desktop. The مرئي / نصي tabs switch between two panels; they don't filter.
+
+<!-- snippet:text-card -->
+
 ### Footer (`dga-footer`, DarkGreen)
 
 Follows **UI Shell - Footer** (RTL, Dark green) in the SDGA Figma components library. It replaces the gold footer and its separate copyright strip with **one** `bg-success-900` block. There is no big title or about text.
