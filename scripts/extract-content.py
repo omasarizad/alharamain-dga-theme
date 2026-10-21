@@ -91,7 +91,8 @@ def main():
     box = til.find_parent("section") or til.parent.parent
     stats = []
     for m in re.finditer(r"([\d٠-٩,+]+\+?)\s+(إجمالي التلاوات|القارئ|القراء|أدعية القنوت|مصحف مسجل)", text(box)):
-        stats.append({"value": m.group(1), "label": m.group(2)})
+        # "قارئ" reads better next to a count than "القارئ"
+        stats.append({"value": m.group(1), "label": {"القارئ": "قارئ"}.get(m.group(2), m.group(2))})
     data["sections"]["tilawat"]["stats"] = stats
 
     # Navigation
